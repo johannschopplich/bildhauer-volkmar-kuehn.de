@@ -11,22 +11,6 @@
     margin-bottom: calc(2rem * var(--du-prose-space-y, 1));
   }
 
-  :where(h1) {
-    font-size: var(--du-text-4xl);
-  }
-
-  :where(h2) {
-    font-size: var(--du-text-3xl);
-  }
-
-  :where(h3) {
-    font-size: var(--du-text-2xl);
-  }
-
-  :where(h4) {
-    font-size: var(--du-text-xl);
-  }
-
   :where(h1, h2, h3, h4, h5, h6) {
     font-weight: 400;
     font-family: var(--du-font-family-heading);

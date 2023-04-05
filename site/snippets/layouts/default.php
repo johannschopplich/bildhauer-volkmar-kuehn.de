@@ -27,7 +27,8 @@
   <meta name="theme-color" content="#776852">
   <?php /* <link rel="manifest" href="/manifest.json"> */ ?>
   <?php /* <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180"> */ ?>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌳</text></svg>">
+  <?php /* <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌳</text></svg>"> */ ?>
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 
   <?= vite()->js('main.ts') ?>
   <?= vite()->css('main.ts') ?>
@@ -48,7 +49,7 @@
     <?php snippet('navigation') ?>
   </div>
 
-  <main id="main" tabindex="-1">
+  <main id="main" class="relative" tabindex="-1">
     <div>
       <?= $slot ?>
     </div>

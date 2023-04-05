@@ -1,5 +1,5 @@
 <footer class="sticky top-[100svh] py-4xl">
-  <div class="max-w-screen-md flex items-end mx-lg sm:mx-3xl">
+  <div class="max-w-screen-sm flex items-end mx-lg sm:mx-3xl">
     <div class="flex-1">
       <p>© <?= date('Y') ?> Volkmar Kühn</p>
 
@@ -12,10 +12,13 @@
       </p>
     </div>
 
-    <div>
-      <?php /*
-      <img src="<?= asset('assets/img/fox-1.png')->url() ?>" class="w-full max-w-24 sm:max-w-36"> -->
-      */ ?>
+    <div class="translate-y-9">
+      <div class="w-34">
+        <div class="children:h-full children:w-full">
+          <?= asset('assets/images/logo-footer.svg')->read() ?>
+        </div>
+        <div class="bg-accent-50 h-10 w-full"></div>
+      </div>
     </div>
   </div>
 </footer>
