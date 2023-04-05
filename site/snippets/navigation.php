@@ -16,13 +16,13 @@
     */ ?>
 
     <burger-menu class="burger-menu inline-flex absolute top-[2px] right-0 z-20 md:hidden">
-      <button class="relative w-[30px] h-[22.5px] bg-transparent border-none cursor-pointer" data-element="navigation-trigger" type="button">
+      <button class="relative w-[30px] h-[22.5px] bg-transparent border-none cursor-pointer" type="button" data-element="navigation-trigger">
         <span class="block burger-menu-bar" aria-hidden="true"></span>
       </button>
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel flex flex-col justify-center md:mt-auto z-10" aria-label="primary" data-element="navigation-panel">
+  <nav class="navigation-panel flex flex-col justify-center md:mt-auto z-10" aria-label="primary" data-element="navigation-panel" data-theme="dark">
     <ul class="space-y-3xl md:space-y-sm tracking-tight" role="list">
       <?php if ($home = $site->homePage()): ?>
         <a href="<?= $home->url() ?>" class="navigation-link font-heading text-3xl leading-heading md:text-2xl md:leading-heading md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>>

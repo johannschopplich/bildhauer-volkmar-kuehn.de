@@ -1,12 +1,27 @@
 @use "duecss/abstracts/breakpoints";
 
+#header {
+  background-color: var(--du-color-background);
+
+  @include breakpoints.media-below(md) {
+    border-bottom: 2px solid var(--du-color-accent-700);
+  }
+
+  @include breakpoints.media-above(md) {
+    --du-color-background: var(--du-color-accent-700);
+    --du-color-text: white;
+    --du-color-link: var(--du-color-text);
+    --du-color-link-hover: var(--du-color-accent-200);
+  }
+}
+
 .burger-menu-bar,
 .burger-menu-bar::before,
 .burger-menu-bar::after {
   position: absolute;
   left: 50%;
   width: 30px;
-  height: 2.5px;
+  height: 2px;
   background: currentColor;
   border: 1px solid currentColor;
   // border-radius: 3px;
@@ -30,10 +45,8 @@
   &::after {
     bottom: -10px;
   }
-}
 
-.burger-menu[status="open"] {
-  .burger-menu-bar {
+  .burger-menu[status="open"] & {
     background: transparent;
     border-color: transparent;
     transform: rotate(180deg);
@@ -60,7 +73,6 @@
     justify-content: center;
     align-items: center;
     padding: 2.25rem; // 4xl
-    background-color: var(--du-color-accent-700);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
