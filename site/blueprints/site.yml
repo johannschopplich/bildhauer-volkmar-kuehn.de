@@ -20,7 +20,7 @@ tabs:
             create: default
             info: "/{{ page.slug }}"
             image:
-              back: "#DDACAE"
+              back: "#776852"
               cover: true
 
       - width: 1/2
@@ -34,7 +34,7 @@ tabs:
             create: default
             info: "/{{ page.slug }}"
             image:
-              back: "#F1EAE9"
+              back: "#776852"
               cover: true
           pageDrafts:
             type: pages
