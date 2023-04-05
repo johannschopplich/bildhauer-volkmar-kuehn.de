@@ -72,7 +72,7 @@ tabs:
             type: fields
             fields:
               thumbnail:
-                query: kirby.site.files.template('image')
+                query: kirby.site.files.template("image")
                 uploads:
                   parent: kirby.site
                   template: image

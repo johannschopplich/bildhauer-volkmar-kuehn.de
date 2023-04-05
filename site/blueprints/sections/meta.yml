@@ -15,7 +15,6 @@ fields:
       de: Beschreibung (Überschreiben)
       en: Description (Override)
     type: textarea
-    font: monospace
     buttons: false
     help:
       de: Eine kurze Beschreibung der Seite, die von Suchmaschinen unter dem Titel angezeigt wird.
@@ -25,7 +24,7 @@ fields:
       de: Vorschaubild
       en: Thumbnail
     type: files
-    query: page.files.template('image')
+    query: page.files.template("image")
     uploads:
       template: image
     multiple: false
