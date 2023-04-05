@@ -42,7 +42,7 @@
 
 </head>
 
-<body class="grid grid-rows-[auto_1fr] children:min-w-0 md:grid-rows-none md:grid-cols-[1fr_2fr]" data-template="<?= $page->intendedTemplate()->name() ?>">
+<body class="min-h-[100svh] grid grid-rows-[auto_1fr] children:min-w-0 md:grid-rows-none md:grid-cols-[1fr_2fr]" data-template="<?= $page->intendedTemplate()->name() ?>">
 
   <div data-theme="dark">
     <a href="#main" class="skip-link">Zum Inhalt springen</a>
