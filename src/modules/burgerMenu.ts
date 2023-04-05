@@ -35,12 +35,12 @@ class BurgerMenu extends HTMLElement {
   }
 
   connectedCallback() {
-    this.trigger = this.querySelector(
+    this.trigger = this.querySelector<HTMLElement>(
       '[data-element="navigation-trigger"]'
-    ) as HTMLElement;
-    this.panel = document.querySelector(
+    )!;
+    this.panel = document.querySelector<HTMLElement>(
       '[data-element="navigation-panel"]'
-    ) as HTMLElement;
+    )!;
 
     this.toggle();
 

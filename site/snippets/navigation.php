@@ -5,7 +5,7 @@
 ?>
 <div class="px-lg pt-sm pb-lg md:h-[100svh] md:px-3xl md:py-4xl md:sticky md:top-0 md:left-0 md:grid md:grid-rows-[auto_1fr]">
   <div class="relative w-full flex flex-col gap-xs items-center lg:flex-row lg:items-start lg:justify-between">
-    <a href="<?= $site->url() ?>" class="block text-underline font-heading leading-heading text-size-2xl md:text-size-3xl"<?php e($page->isHomePage(), ' aria-current="page"') ?>>
+    <a href="<?= $site->url() ?>" class="block text-underline font-heading leading-heading text-size-xl md:text-size-3xl"<?php e($page->isHomePage(), ' aria-current="page"') ?>>
       <?= $site->title()->escape() ?>
     </a>
 
@@ -15,8 +15,8 @@
     </a>
     */ ?>
 
-    <burger-menu class="burger-menu absolute top-0 right-0 z-20 md:hidden">
-      <button class="relative w-8 h-8 bg-transparent border-none cursor-pointer" data-element="navigation-trigger" type="button">
+    <burger-menu class="burger-menu inline-flex absolute top-1 right-0 z-20 md:hidden">
+      <button class="relative w-[30px] h-[22.5px] bg-transparent border-none cursor-pointer" data-element="navigation-trigger" type="button">
         <span class="block burger-menu-bar" aria-hidden="true"></span>
       </button>
     </burger-menu>
