@@ -26,8 +26,3 @@ a.text-underline {
 a.hover\:text-underline:not(:hover) {
   text-decoration-color: transparent;
 }
-
-.text-hero {
-  font-size: clamp(var(--du-text-4xl), 10vw, 5rem);
-  line-height: var(--du-line-height-heading);
-}
