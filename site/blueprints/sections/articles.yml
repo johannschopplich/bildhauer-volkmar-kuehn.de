@@ -1,0 +1,9 @@
+type: pages
+templates:
+  - article
+create: article
+sortBy: published desc
+info: "{{ page.published.toDate('%d.%m.%Y') }}"
+image:
+  query: page.thumbnail.toFile
+  cover: true

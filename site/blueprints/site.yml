@@ -1,0 +1,80 @@
+title:
+  de: Übersicht
+  en: Site
+
+tabs:
+  dashboard:
+    label:
+      de: Übersicht
+      en: Dashboard
+    icon: dashboard
+    columns:
+      - width: 1/2
+        sections:
+          listedPages:
+            type: pages
+            headline:
+              de: Gelistete Seiten
+              en: Listed Pages
+            status: listed
+            create: default
+            info: "/{{ page.slug }}"
+            image:
+              back: "#DDACAE"
+              cover: true
+
+      - width: 1/2
+        sections:
+          unlistedPages:
+            type: pages
+            headline:
+              de: Ungelistete Seiten
+              en: Unlisted Pages
+            status: unlisted
+            create: default
+            info: "/{{ page.slug }}"
+            image:
+              back: "#F1EAE9"
+              cover: true
+          pageDrafts:
+            type: pages
+            headline:
+              de: Entwürfe
+              en: Drafts
+            status: draft
+            create: default
+            info: "/{{ page.slug }}"
+            image:
+              back: white
+              cover: true
+
+  settings:
+    label:
+      de: Einstellungen
+      en: Settings
+    icon: settings
+    columns:
+      - width: 1/2
+        sections:
+          content:
+            type: fields
+            fields:
+              footerPages:
+                label:
+                  de: Fußzeilenlinks
+                  en: Footer Pages
+                type: pages
+
+      - width: 1/2
+        sections:
+          meta:
+            extends: sections/meta
+            type: fields
+            fields:
+              thumbnail:
+                query: kirby.site.files.template('image')
+                uploads:
+                  parent: kirby.site
+                  template: image
+
+  images: tabs/images

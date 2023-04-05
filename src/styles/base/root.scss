@@ -1,0 +1,24 @@
+:root {
+  --du-font-family-normal: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --du-font-family-heading: "Silverknife", sans-serif;
+  --du-text-scale-ratio: 1.333;
+  --du-line-height-heading: calc(1ex / 0.6);
+
+  // Custom due root variables
+  --du-decoration-width: clamp(2px, 0.1em, 4px);
+}
+
+:root:not([data-theme]),
+[data-theme="light"] {
+  --du-color-background: #fafaf9;
+  --du-color-link: var(--du-color-text);
+  --du-color-link-hover: var(--du-color-accent-500);
+}
+
+[data-theme="dark"] {
+  --du-color-background: var(--du-color-accent-700);
+  --du-color-text: white;
+  --du-color-link: var(--du-color-text);
+  --du-color-link-hover: var(--du-color-accent-200);
+}

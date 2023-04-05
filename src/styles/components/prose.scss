@@ -1,0 +1,45 @@
+@use "duecss/plugins/typography";
+
+.prose {
+  --du-prose-space-y: 1.5;
+
+  :where(figure:not(:first-child)) {
+    margin-top: calc(2rem * var(--du-prose-space-y, 1));
+  }
+
+  :where(figure:not(:last-child)) {
+    margin-bottom: calc(2rem * var(--du-prose-space-y, 1));
+  }
+
+  :where(h1) {
+    font-size: var(--du-text-4xl);
+  }
+
+  :where(h2) {
+    font-size: var(--du-text-3xl);
+  }
+
+  :where(h3) {
+    font-size: var(--du-text-2xl);
+  }
+
+  :where(h4) {
+    font-size: var(--du-text-xl);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-weight: 400;
+    font-family: var(--du-font-family-heading);
+
+    a {
+      color: inherit;
+      text-decoration-line: none;
+    }
+  }
+
+  :where(figcaption) {
+    font-size: 0.75em;
+    color: var(--du-color-contrast-medium);
+    line-height: var(--du-line-height-normal);
+  }
+}

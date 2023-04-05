@@ -1,0 +1,127 @@
+@use "duecss/abstracts/breakpoints";
+
+.burger-menu-bar,
+.burger-menu-bar::before,
+.burger-menu-bar::after {
+  position: absolute;
+  left: 50%;
+  width: 30px;
+  height: 3px;
+  background: currentColor;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  margin-left: -15px;
+  transition: transform 250ms ease;
+}
+
+.burger-menu-bar {
+  top: 50%;
+  transform: translateY(-50%);
+
+  &::before,
+  &::after {
+    content: "";
+  }
+
+  &::before {
+    top: -10px;
+  }
+
+  &::after {
+    bottom: -10px;
+  }
+}
+
+.burger-menu[status="open"] {
+  .burger-menu-bar {
+    background: transparent;
+    border-color: transparent;
+    transform: rotate(180deg);
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@include breakpoints.media-below(md) {
+  .navigation-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 2.25rem; // 4xl
+    background-color: var(--du-color-accent-700);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    ul {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+
+    &:not(.is-open) {
+      pointer-events: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &.is-open {
+      transition: opacity 400ms ease;
+
+      ul {
+        transform: translateY(0);
+        opacity: 1;
+        transition: transform 500ms cubic-bezier(0.17, 0.67, 0, 0.87) 200ms,
+          opacity 500ms ease 300ms;
+      }
+    }
+  }
+}
+
+.navigation-link {
+  width: 100%;
+  display: flex;
+
+  @include breakpoints.media-below(md) {
+    justify-content: center;
+    text-align: center;
+  }
+
+  &[aria-current="page"] {
+    color: var(--du-color-link-hover);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: var(--du-decoration-width);
+    text-underline-offset: var(--du-decoration-width);
+  }
+}
+
+.logo-animate {
+  animation: logoRotation 2s ease;
+  transform-origin: top center;
+}
+
+@keyframes logoRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-8deg);
+  }
+  55% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
