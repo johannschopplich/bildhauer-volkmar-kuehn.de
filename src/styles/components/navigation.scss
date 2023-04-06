@@ -53,11 +53,15 @@
 
     &::before {
       top: 0;
+      background: white;
+      border-color: white;
       transform: rotate(45deg);
     }
 
     &::after {
       top: 0;
+      background: white;
+      border-color: white;
       transform: rotate(-45deg);
     }
   }
