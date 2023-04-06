@@ -3,7 +3,7 @@
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 ?>
-<div class="px-lg py-xs md:sticky md:h-[100svh] md:top-0 md:left-0 md:grid md:grid-rows-[auto_1fr] md:p-0">
+<div class="px-lg py-xs md:sticky md:h-[100svh] md:top-0 md:left-0 md:grid md:grid-rows-[auto_1fr] md:p-0 md:overflow-hidden">
   <div class="w-full flex justify-between items-center md:px-3xl md:py-4xl lg:items-start">
     <a href="<?= $site->url() ?>" class="block font-heading leading-heading text-size-xl md:text-size-3xl"<?php e($page->isHomePage(), ' aria-current="page"') ?>>
       <?= $site->title()->escape() ?>
@@ -16,7 +16,7 @@
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel grid grid-rows-[1fr_2fr] z-10 md:block md:max-w-70 md:mt-auto" aria-label="primary" data-element="navigation-panel" data-theme="dark">
+  <nav class="navigation-panel z-10 md:max-w-[320px] md:mt-auto md:pt-4xl" aria-label="primary" data-element="navigation-panel" data-theme="dark">
     <div class="relative z-1 h-full flex items-end pt-[5vh] md:pt-0">
       <div class="w-[75vw] translate-y-[1px] origin-bottom children:h-full children:w-full md:w-full md:animate-scale">
         <?= asset('assets/images/logo-footer.svg')->read() ?>
@@ -39,8 +39,9 @@
           <?php $index = $item->indexOf($listedItems) + 1 ?>
           <a
             href="<?= $item->url() ?>"
-            class="navigation-link font-heading text-3xl md:text-2xl md:leading-heading"<?php e($item->isOpen(), ' aria-current="page"') ?>
-            style="transition-delay: <?= 200 + $index * 50 ?>ms, <?= 300 + $index * 50 ?>ms"
+            class="navigation-link font-heading text-3xl md:text-2xl md:leading-heading md:duration-0"
+            <?php e($item->isOpen(), 'aria-current="page"') ?>
+            style="--delay: <?= $index * 50 ?>ms"
           >
             <?= $item->title()->escape() ?>
           </a>

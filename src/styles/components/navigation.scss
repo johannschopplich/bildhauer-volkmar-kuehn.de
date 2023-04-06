@@ -74,12 +74,13 @@
     left: 0;
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
     justify-content: center;
-    align-items: center;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
-    ul > * {
+    .navigation-link {
       opacity: 0;
       transform: translateY(2rem);
     }
@@ -93,11 +94,12 @@
     &.is-open {
       transition: opacity 200ms ease;
 
-      ul > * {
+      .navigation-link {
         transform: translateY(0);
         opacity: 1;
-        transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55) 200ms,
-          opacity 500ms ease 300ms;
+        transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55)
+            calc(var(--delay, 0ms) + 200ms),
+          opacity 500ms ease calc(var(--delay, 0ms) + 300ms);
       }
     }
   }
