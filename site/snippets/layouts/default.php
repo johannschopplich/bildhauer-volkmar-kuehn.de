@@ -40,6 +40,8 @@
   <?= css('assets/fonts/Silverknife.css') ?>
   <?= css('assets/fonts/Jost.css') ?>
 
+  <script defer data-domain="bildhauer-volkmar-kuehn.de" src="https://plausible.io/js/script.js"></script>
+
 </head>
 
 <body class="min-h-[100svh] grid grid-rows-[auto_1fr] children:min-w-0 md:grid-rows-none md:grid-cols-[1fr_2fr]" data-template="<?= $page->intendedTemplate()->name() ?>">
