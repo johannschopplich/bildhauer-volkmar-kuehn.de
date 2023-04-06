@@ -1,4 +1,6 @@
 <?php
+/** @var \Kirby\Cms\App $kirby */
+/** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 snippet('layouts/default', slots: true);
 ?>
@@ -9,9 +11,13 @@ snippet('layouts/default', slots: true);
       <?php snippet('title', ['title' => $page->title()->escape()]) ?>
     </div>
 
-    <section class="prose">
-      <?= $page->text()->toBlocks() ?>
-    </section>
+    <?php if ($page->intendedTemplate()->name() === 'articles'): ?>
+      <?php snippet('articles', ['query' => $page->children()->listed()]) ?>
+    <?php else: ?>
+      <section class="prose">
+        <?= $page->text()->toBlocks() ?>
+      </section>
+    <?php endif ?>
   </div>
 </div>
 

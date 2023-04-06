@@ -12,13 +12,8 @@
       </p>
     </div>
 
-    <div class="translate-y-9">
-      <div class="w-34">
-        <div class="children:h-full children:w-full">
-          <?= asset('assets/images/logo-footer.svg')->read() ?>
-        </div>
-        <div class="bg-accent-50 h-10 w-full"></div>
-      </div>
+    <div>
+      <!-- Footer image -->
     </div>
   </div>
 </footer>
