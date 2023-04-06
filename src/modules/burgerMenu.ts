@@ -2,6 +2,7 @@ import { scrollLock } from "../utils/scrollLock";
 
 interface BurgerState {
   status: "open" | "closed";
+  enabled: boolean;
 }
 
 const { lock, unlock } = scrollLock(document.documentElement);
@@ -21,21 +22,20 @@ class BurgerMenu extends HTMLElement {
     this.state = new Proxy<BurgerState>(
       {
         status: "open",
+        enabled: false,
       },
       {
-        set(target, key, value) {
-          if (key !== "status") return false;
+        set(target, key: keyof BurgerState, value) {
+          const oldValue = Reflect.get(target, key);
+          const result = Reflect.set(target, key, value);
 
-          const oldValue = target[key];
-          target[key] = value;
-
-          if (oldValue !== value) {
+          if (result && oldValue !== value) {
             self.updateAttributes();
             self.updateFocus();
             self.updatePanelClass();
           }
 
-          return true;
+          return result;
         },
       }
     );
@@ -66,6 +66,13 @@ class BurgerMenu extends HTMLElement {
         this.toggle("closed");
       }
     });
+
+    const observer = new ResizeObserver(([entry]) => {
+      const { contentRect } = entry;
+      this.state.enabled = contentRect.width <= 768;
+    });
+
+    observer.observe(this.parentNode as Element);
   }
 
   toggle(forcedStatus?: BurgerState["status"]) {
@@ -79,6 +86,7 @@ class BurgerMenu extends HTMLElement {
 
   updateAttributes() {
     this.setAttribute("status", this.state.status);
+    this.setAttribute("enabled", this.state.enabled ? "true" : "false");
 
     const ariaExpanded = this.state.status === "open" ? "true" : "false";
     const ariaLabel =
@@ -92,7 +100,7 @@ class BurgerMenu extends HTMLElement {
     if (!this.focusableElements) return;
 
     for (const element of this.focusableElements) {
-      if (this.state.status === "open") {
+      if (this.state.status === "open" || !this.state.enabled) {
         element.removeAttribute("tabindex");
       } else {
         element.setAttribute("tabindex", "-1");
