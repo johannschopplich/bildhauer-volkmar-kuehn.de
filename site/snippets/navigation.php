@@ -28,12 +28,19 @@
 
       <ul class="relative w-[75vw] py-4xl space-y-3xl md:w-full md:space-y-sm" role="list">
         <?php if ($home = $site->homePage()): ?>
-          <a href="<?= $home->url() ?>" class="navigation-link font-heading text-3xl leading-heading md:text-2xl md:leading-heading md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>>
+          <a
+            href="<?= $home->url() ?>"
+            class="navigation-link font-heading text-3xl leading-heading md:text-2xl md:leading-heading md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>
+          >
             Startseite
           </a>
         <?php endif ?>
-        <?php foreach ($site->children()->listed() as $item): ?>
-          <a href="<?= $item->url() ?>" class="navigation-link font-heading text-3xl md:text-2xl md:leading-heading"<?php e($item->isOpen(), ' aria-current="page"') ?>>
+        <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
+          <a
+            href="<?= $item->url() ?>"
+            class="navigation-link font-heading text-3xl md:text-2xl md:leading-heading"<?php e($item->isOpen(), ' aria-current="page"') ?>
+            style="transition-delay: <?= 200 + $item->indexOf($listedItems) * 100 ?>ms, <?= 300 + $item->indexOf($listedItems) * 100 ?>ms"
+          >
             <?= $item->title()->escape() ?>
           </a>
         <?php endforeach ?>

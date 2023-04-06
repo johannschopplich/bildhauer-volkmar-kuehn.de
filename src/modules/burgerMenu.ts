@@ -1,6 +1,10 @@
+import { scrollLock } from "../utils/scrollLock";
+
 interface BurgerState {
   status: "open" | "closed";
 }
+
+const { lock, unlock } = scrollLock(document.documentElement);
 
 class BurgerMenu extends HTMLElement {
   state: BurgerState;
@@ -26,7 +30,9 @@ class BurgerMenu extends HTMLElement {
           target[key] = value;
 
           if (oldValue !== value) {
-            self.processStateChange();
+            self.updateAttributes();
+            self.updateFocus();
+            self.updatePanelClass();
           }
 
           return true;
@@ -48,6 +54,7 @@ class BurgerMenu extends HTMLElement {
 
     this.trigger.addEventListener("click", (event: Event) => {
       event.preventDefault();
+      window.scrollTo(0, 0);
       this.toggle();
     });
 
@@ -70,34 +77,18 @@ class BurgerMenu extends HTMLElement {
     this.state.status = this.state.status === "closed" ? "open" : "closed";
   }
 
-  enableDocumentScroll() {
-    document.body.style.removeProperty("height");
-    document.body.style.removeProperty("overflow-y");
-  }
-
-  disableDocumentScroll() {
-    document.body.style.height = "100svh";
-    document.body.style.overflowY = "hidden";
-  }
-
-  processStateChange() {
+  updateAttributes() {
     this.setAttribute("status", this.state.status);
-    this.manageFocus();
 
-    if (this.state.status === "open") {
-      this.trigger!.setAttribute("aria-expanded", "true");
-      this.trigger!.setAttribute("aria-label", "Menü schließen");
-      this.panel!.classList.add("is-open");
-      this.disableDocumentScroll();
-    } else {
-      this.trigger!.setAttribute("aria-expanded", "false");
-      this.trigger!.setAttribute("aria-label", "Menü öffnen");
-      this.panel!.classList.remove("is-open");
-      this.enableDocumentScroll();
-    }
+    const ariaExpanded = this.state.status === "open" ? "true" : "false";
+    const ariaLabel =
+      this.state.status === "open" ? "Menü schließen" : "Menü öffnen";
+
+    this.trigger?.setAttribute("aria-expanded", ariaExpanded);
+    this.trigger?.setAttribute("aria-label", ariaLabel);
   }
 
-  manageFocus() {
+  updateFocus() {
     if (!this.focusableElements) return;
 
     for (const element of this.focusableElements) {
@@ -106,6 +97,15 @@ class BurgerMenu extends HTMLElement {
       } else {
         element.setAttribute("tabindex", "-1");
       }
+    }
+  }
+  updatePanelClass() {
+    if (this.state.status === "open") {
+      this.panel?.classList.add("is-open");
+      lock();
+    } else {
+      this.panel?.classList.remove("is-open");
+      unlock();
     }
   }
 }
