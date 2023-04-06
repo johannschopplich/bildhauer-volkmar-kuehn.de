@@ -3,9 +3,9 @@
 #header {
   background-color: var(--du-color-background);
 
-  @include breakpoints.media-below(md) {
-    border-bottom: 1px solid var(--du-color-primary-700);
-  }
+  // @include breakpoints.media-below(md) {
+  //   border-bottom: 1px solid var(--du-color-primary-700);
+  // }
 
   @include breakpoints.media-above(md) {
     --du-color-background: var(--du-color-primary-700);
