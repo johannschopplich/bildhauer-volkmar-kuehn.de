@@ -117,7 +117,7 @@
   &[aria-current="page"] {
     color: var(--du-color-link-hover);
     text-decoration-line: underline;
-    text-decoration-style: dotted;
+    text-decoration-style: solid;
     text-decoration-thickness: var(--du-decoration-width);
     text-underline-offset: var(--du-decoration-width);
   }
