@@ -9,8 +9,8 @@
       ]) ?>
 
       <div class="mx-2px">
-        <p class="flex items-center gap-1 after:content-empty after:w-full after:h-1px after:bg-accent-400">
-          <span class="text-accent-400 text-size-lg leading-none uppercase tracking-widest">
+        <p class="flex items-center gap-1 after:content-empty after:w-full after:h-1px after:bg-primary-400">
+          <span class="text-primary-400 text-size-lg leading-none uppercase tracking-widest">
             <?= $article->category()->escape() ?>
           </span>
         </p>

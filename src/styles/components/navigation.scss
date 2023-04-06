@@ -4,14 +4,14 @@
   background-color: var(--du-color-background);
 
   @include breakpoints.media-below(md) {
-    border-bottom: 2px solid var(--du-color-accent-700);
+    border-bottom: 2px solid var(--du-color-primary-700);
   }
 
   @include breakpoints.media-above(md) {
-    --du-color-background: var(--du-color-accent-700);
+    --du-color-background: var(--du-color-primary-700);
     --du-color-text: white;
     --du-color-link: var(--du-color-text);
-    --du-color-link-hover: var(--du-color-accent-200);
+    --du-color-link-hover: var(--du-color-primary-200);
   }
 }
 

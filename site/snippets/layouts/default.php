@@ -6,11 +6,9 @@
 <!DOCTYPE html>
 <html class="
   var-color-primary
-  var-color-accent
-  var-color-accent-200
-  var-color-accent-500
-  var-color-accent-700
-  var-color-linen
+  var-color-primary-200
+  var-color-primary-500
+  var-color-primary-700
 " lang="de">
 <head>
 

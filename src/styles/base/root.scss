@@ -13,12 +13,12 @@
 [data-theme="light"] {
   --du-color-background: #fafaf9;
   --du-color-link: var(--du-color-text);
-  --du-color-link-hover: var(--du-color-accent-500);
+  --du-color-link-hover: var(--du-color-primary-500);
 }
 
 [data-theme="dark"] {
-  --du-color-background: var(--du-color-accent-700);
+  --du-color-background: var(--du-color-primary-700);
   --du-color-text: white;
   --du-color-link: var(--du-color-text);
-  --du-color-link-hover: var(--du-color-accent-200);
+  --du-color-link-hover: var(--du-color-primary-200);
 }

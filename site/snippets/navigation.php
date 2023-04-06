@@ -23,8 +23,8 @@
       </div>
     </div>
 
-    <div class="relative h-full bg-accent-600 md:px-3xl md:bg-accent-700">
-      <div class="hidden absolute -top-4 inset-x-0 bottom-0 bg-accent-600 origin-bottom md:block md:animate-scale"></div>
+    <div class="relative h-full bg-primary-600 md:px-3xl md:bg-primary-700">
+      <div class="hidden absolute -top-4 inset-x-0 bottom-0 bg-primary-600 origin-bottom md:block md:animate-scale"></div>
 
       <ul class="relative w-[75vw] py-4xl space-y-3xl md:w-full md:space-y-sm" role="list">
         <?php if ($home = $site->homePage()): ?>
