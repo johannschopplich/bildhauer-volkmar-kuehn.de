@@ -1,6 +1,6 @@
 const selector = "[data-zoomable]";
 
-export const install = async () => {
+export async function install() {
   const elements = [...document.querySelectorAll<HTMLElement>(selector)];
 
   const { default: mediumZoom } = await import("medium-zoom");
@@ -12,4 +12,4 @@ export const install = async () => {
     background: "var(--du-color-background)",
     margin,
   });
-};
+}

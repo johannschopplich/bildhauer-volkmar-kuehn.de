@@ -110,9 +110,9 @@ class BurgerMenu extends HTMLElement {
   }
 }
 
-export const install = () => {
+export function install() {
   window.customElements.define("burger-menu", BurgerMenu);
-};
+}
 
 /**
  * Returns back a NodeList of focusable elements

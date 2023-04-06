@@ -1,3 +1,3 @@
-export default async function () {
-  // Custom logic here
+export default function () {
+  // Custom code goes here
 }

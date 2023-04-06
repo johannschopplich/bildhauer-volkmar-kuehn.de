@@ -38,6 +38,10 @@ export default defineConfig({
       /^column-count-(\d+)$/,
       ([, d]) => ({ "column-count": d, "column-gap": "var(--du-space-m)" }),
     ],
+    [
+      "animate-scale",
+      { transform: "scale(calc(1 + var(--scrollY, 0) * 0.05))" },
+    ],
   ],
 
   presets: [presetWind(), presetDue()],

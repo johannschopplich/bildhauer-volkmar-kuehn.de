@@ -17,14 +17,16 @@
   </div>
 
   <nav class="navigation-panel grid grid-rows-[1fr_2fr] z-10 md:block md:max-w-70 md:mt-auto" aria-label="primary" data-element="navigation-panel" data-theme="dark">
-    <div class="h-full flex items-end pt-[5vh] md:pt-0">
-      <div class="w-[75vw] translate-y-[1px] children:h-full children:w-full md:w-full">
+    <div class="relative z-1 h-full flex items-end pt-[5vh] md:pt-0">
+      <div class="w-[75vw] translate-y-[1px] origin-bottom-left children:h-full children:w-full md:w-full md:animate-scale">
         <?= asset('assets/images/logo-footer.svg')->read() ?>
       </div>
     </div>
 
-    <div class="h-full bg-accent-600 md:px-3xl">
-      <ul class="w-[75vw] py-4xl space-y-3xl md:w-full md:space-y-sm" role="list">
+    <div class="relative h-full bg-accent-600 md:px-3xl md:bg-accent-700">
+      <div class="hidden absolute -top-4 inset-x-0 bottom-0 bg-accent-600 origin-bottom-left md:block md:animate-scale"></div>
+
+      <ul class="relative w-[75vw] py-4xl space-y-3xl md:w-full md:space-y-sm" role="list">
         <?php if ($home = $site->homePage()): ?>
           <a href="<?= $home->url() ?>" class="navigation-link font-heading text-3xl leading-heading md:text-2xl md:leading-heading md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>>
             Startseite
