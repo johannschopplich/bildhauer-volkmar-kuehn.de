@@ -4,7 +4,7 @@
 /** @var \Kirby\Cms\Page $page */
 ?>
 <div class="px-lg py-xs md:sticky md:h-[100svh] md:top-0 md:left-0 md:grid md:grid-rows-[auto_1fr] md:p-0 md:overflow-hidden">
-  <div class="w-full flex justify-between items-center md:px-3xl md:py-4xl lg:items-start">
+  <div class="w-full flex justify-between items-center md:p-3xl lg:items-start">
     <a href="<?= $site->url() ?>" class="block font-heading leading-heading text-size-xl md:text-size-3xl"<?php e($page->isHomePage(), ' aria-current="page"') ?>>
       <?= $site->title()->escape() ?>
     </a>

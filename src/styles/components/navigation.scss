@@ -4,7 +4,7 @@
   background-color: var(--du-color-background);
 
   @include breakpoints.media-below(md) {
-    border-bottom: 2px solid var(--du-color-primary-700);
+    border-bottom: 1px solid var(--du-color-primary-700);
   }
 
   @include breakpoints.media-above(md) {
@@ -21,10 +21,9 @@
   position: absolute;
   left: 50%;
   width: 30px;
-  height: 2px;
+  height: 1px;
   background: currentColor;
-  border: 1px solid currentColor;
-  // border-radius: 3px;
+  border: 0 solid currentColor;
   margin-left: -15px;
   transition: transform 250ms ease;
 }
@@ -39,11 +38,11 @@
   }
 
   &::before {
-    top: -9px;
+    top: -8px;
   }
 
   &::after {
-    bottom: -9px;
+    bottom: -8px;
   }
 
   .burger-menu[status="open"] & {
@@ -118,7 +117,7 @@
     color: var(--du-color-link-hover);
     text-decoration-line: underline;
     text-decoration-style: solid;
-    text-decoration-thickness: var(--du-decoration-width);
-    text-underline-offset: var(--du-decoration-width);
+    text-decoration-thickness: var(--du-decoration-thickness);
+    text-underline-offset: var(--du-decoration-offset);
   }
 }
