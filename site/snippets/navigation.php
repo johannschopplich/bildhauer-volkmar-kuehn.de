@@ -36,10 +36,11 @@
           </a>
         <?php endif ?>
         <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
+          <?php $index = $item->indexOf($listedItems) + 1 ?>
           <a
             href="<?= $item->url() ?>"
             class="navigation-link font-heading text-3xl md:text-2xl md:leading-heading"<?php e($item->isOpen(), ' aria-current="page"') ?>
-            style="transition-delay: <?= 200 + $item->indexOf($listedItems) * 100 ?>ms, <?= 300 + $item->indexOf($listedItems) * 100 ?>ms"
+            style="transition-delay: <?= 200 + $index * 50 ?>ms, <?= 300 + $index * 50 ?>ms"
           >
             <?= $item->title()->escape() ?>
           </a>
