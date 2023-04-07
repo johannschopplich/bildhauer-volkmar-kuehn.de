@@ -16,7 +16,7 @@
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel z-10 md:max-w-min md:mt-auto md:pt-4xl" aria-label="primary" data-element="navigation-panel">
+  <nav class="navigation-panel z-10 md:mt-auto md:pt-4xl lg:max-w-min" aria-label="primary" data-element="navigation-panel">
     <div class="relative z-1 h-full flex items-end pt-[5vh] md:pt-0">
       <div class="w-[75vw] translate-y-[1px] origin-bottom children:h-full children:w-full md:w-full md:animate-scale">
         <div class="md:hidden"><?= asset('assets/images/logo-footer-mobile.svg')->read() ?></div>
@@ -27,11 +27,11 @@
     <div class="relative h-full bg-primary-50 md:px-3xl md:bg-primary-700">
       <div class="hidden absolute -top-4 inset-x-0 bottom-0 bg-primary-600 origin-bottom md:block md:animate-scale"></div>
 
-      <ul class="relative w-[75vw] py-4xl space-y-3xl md:w-full md:space-y-xl" role="list">
+      <ul class="relative w-[75vw] py-4xl space-y-3xl md:w-full md:space-y-xs" role="list">
         <?php if ($home = $site->homePage()): ?>
           <a
             href="<?= $home->url() ?>"
-            class="navigation-link text-xl md:text-lg md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>
+            class="navigation-link text-xl md:text-size-lg md:leading-normal md:whitespace-nowrap md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>
           >
             Startseite
           </a>
@@ -40,7 +40,7 @@
           <?php $index = $item->indexOf($listedItems) + 1 ?>
           <a
             href="<?= $item->url() ?>"
-            class="navigation-link text-xl md:text-lg md:tracking-wide md:uppercase"
+            class="navigation-link text-xl md:text-size-lg md:leading-normal md:uppercase md:tracking-wide lg:whitespace-nowrap"
             <?php e($item->isOpen(), 'aria-current="page"') ?>
             style="--delay: <?= $index * 50 ?>ms"
           >

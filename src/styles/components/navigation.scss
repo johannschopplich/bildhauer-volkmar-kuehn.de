@@ -105,7 +105,6 @@
 .navigation-link {
   width: 100%;
   display: block;
-  white-space: nowrap;
 
   @include breakpoints.media-below(md) {
     text-align: center;
@@ -116,7 +115,7 @@
   }
 
   &[aria-current="page"] {
-    color: var(--du-color-link-hover);
+    color: var(--du-color-link);
     text-decoration-line: underline;
     text-decoration-style: solid;
     text-decoration-thickness: var(--du-decoration-thickness);
