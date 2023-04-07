@@ -4,7 +4,7 @@
 /** @var \Kirby\Cms\Page $page */
 ?>
 <div class="px-lg py-xs md:sticky md:h-[100svh] md:top-0 md:left-0 md:grid md:grid-rows-[auto_1fr] md:p-0 md:overflow-hidden">
-  <div class="w-full flex justify-between items-center md:p-3xl lg:items-start">
+  <div class="w-full flex justify-between items-center md:border-b md:border-white md:ml-3xl md:py-3xl md:pr-3xl lg:items-start">
     <a href="<?= $site->url() ?>" class="block font-heading leading-heading text-size-xl md:text-size-3xl"<?php e($page->isHomePage(), ' aria-current="page"') ?>>
       <?= $site->title()->escape() ?>
     </a>
@@ -16,22 +16,19 @@
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel z-10 md:mt-auto md:pt-4xl lg:max-w-min" aria-label="primary" data-element="navigation-panel">
-    <div class="relative z-1 h-full flex items-end pt-[5vh] md:pt-0">
-      <div class="w-[75vw] translate-y-[1px] origin-bottom children:h-full children:w-full md:w-full md:animate-scale">
-        <div class="md:hidden"><?= asset('assets/images/logo-footer-mobile.svg')->read() ?></div>
-        <div class="hidden md:block"><?= asset('assets/images/logo-footer.svg')->read() ?></div>
+  <nav class="navigation-panel md:flex md:flex-col md:justify-between" aria-label="primary" data-element="navigation-panel">
+    <div class="h-full flex items-end pt-[5vh] md:hidden">
+      <div class="w-[75vw] translate-y-[1px] origin-bottom children:h-full children:w-full">
+        <?= asset('assets/images/logo-footer-mobile.svg')->read() ?>
       </div>
     </div>
 
-    <div class="relative h-full bg-primary-50 md:px-3xl md:bg-primary-700">
-      <div class="hidden absolute -top-4 inset-x-0 bottom-0 bg-primary-600 origin-bottom md:block md:animate-scale"></div>
-
-      <ul class="relative w-[75vw] py-4xl space-y-3xl md:w-full md:space-y-xs" role="list">
+    <div class="h-full bg-primary-50 md:px-3xl md:bg-primary-700 md:h-initial">
+      <ul class="w-[75vw] py-4xl space-y-3xl md:w-full md:py-3xl md:space-y-lg" role="list">
         <?php if ($home = $site->homePage()): ?>
           <a
             href="<?= $home->url() ?>"
-            class="navigation-link text-xl md:text-size-lg md:leading-normal md:whitespace-nowrap md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>
+            class="navigation-link text-xl md:text-lg md:whitespace-nowrap md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>
           >
             Startseite
           </a>
@@ -40,7 +37,7 @@
           <?php $index = $item->indexOf($listedItems) + 1 ?>
           <a
             href="<?= $item->url() ?>"
-            class="navigation-link text-xl md:text-size-lg md:leading-normal md:uppercase md:tracking-wide lg:whitespace-nowrap"
+            class="navigation-link text-xl md:text-lg lg:whitespace-nowrap"
             <?php e($item->isOpen(), 'aria-current="page"') ?>
             style="--delay: <?= $index * 50 ?>ms"
           >
@@ -48,6 +45,15 @@
           </a>
         <?php endforeach ?>
       </ul>
+    </div>
+
+    <div class="hidden md:block">
+      <div class="animate-scale origin-bottom lg:max-w-[65%] lg:mx-auto">
+        <div class="w-full mb-[-1px] children:h-full children:w-full">
+          <?= asset('assets/images/logo-footer.svg')->read() ?>
+        </div>
+        <div class="w-full h-[15svh] bg-primary-600"></div>
+      </div>
     </div>
   </nav>
 </div>

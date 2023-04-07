@@ -76,6 +76,7 @@
     justify-content: center;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    z-index: 10;
 
     .navigation-link {
       opacity: 0;

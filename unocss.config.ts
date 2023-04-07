@@ -53,7 +53,10 @@ export default defineConfig({
     ],
     [
       "animate-scale",
-      { transform: "scale(calc(1 + var(--scrollY, 0) * 0.05))" },
+      {
+        transform:
+          "translateY(calc(1rem * var(--scrollY, 0))) scale(calc(1 + var(--scrollY, 0) * 0.05))",
+      },
     ],
   ],
 
