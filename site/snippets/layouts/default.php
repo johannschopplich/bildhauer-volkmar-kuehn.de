@@ -46,10 +46,10 @@
 
 <body class="min-h-[100svh] grid grid-rows-[auto_1fr] children:min-w-0 md:grid-rows-none md:grid-cols-[1fr_2fr]" data-template="<?= $page->intendedTemplate()->name() ?>">
 
-  <div id="header">
+  <aside class="navigation-wrapper">
     <a href="#main" class="skip-link">Zum Inhalt springen</a>
     <?php snippet('navigation') ?>
-  </div>
+  </aside>
 
   <main id="main" class="relative" tabindex="-1">
     <div>
