@@ -49,7 +49,11 @@ export default defineConfig({
   rules: [
     [
       /^column-count-(\d+)$/,
-      ([, d]) => ({ "column-count": d, "column-gap": "var(--du-space-m)" }),
+      ([, d], { theme }) => ({
+        "column-count": d,
+        // @ts-expect-error: missing type
+        "column-gap": theme.spacing["4xl"],
+      }),
     ],
     [
       "animate-scale",
