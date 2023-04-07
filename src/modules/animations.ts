@@ -6,9 +6,7 @@ export function install() {
   watchViewport(updateViewportProps);
 }
 
-function updateViewportProps(data: TornisData) {
-  const { scroll, size } = data;
-
+function updateViewportProps({ scroll, size }: TornisData) {
   if (scroll.changed) {
     let scrollOffset = scroll.top / (size.docY - size.y);
 
