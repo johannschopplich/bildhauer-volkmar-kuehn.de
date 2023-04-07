@@ -4,6 +4,10 @@
   background-color: var(--du-color-background);
 
   // Set `data-theme` effects manually
+  @include breakpoints.media-below(md) {
+    --du-color-link-hover: var(--du-color-accent-700);
+  }
+
   @include breakpoints.media-above(md) {
     --du-color-background: var(--du-color-primary-700);
     --du-color-text: white;
@@ -100,11 +104,15 @@
 
 .navigation-link {
   width: 100%;
-  display: flex;
+  display: block;
+  white-space: nowrap;
 
   @include breakpoints.media-below(md) {
-    justify-content: center;
     text-align: center;
+  }
+
+  @include breakpoints.media-above(md) {
+    transition-duration: 0;
   }
 
   &[aria-current="page"] {

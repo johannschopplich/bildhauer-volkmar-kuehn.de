@@ -9,6 +9,8 @@
   var-color-primary-200
   var-color-primary-500
   var-color-primary-700
+  var-color-primary-700
+  var-color-accent-700
 " lang="de">
 <head>
 
