@@ -2,7 +2,6 @@
   font-family: "Silverknife";
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
   src: url("Silverknife-Regular.woff2") format("woff2");
 }
 
@@ -10,7 +9,6 @@
   font-family: "Silverknife";
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
   src: url("Silverknife-RegularItalic.woff2") format("woff2");
 }
 
@@ -18,7 +16,6 @@
   font-family: "Silverknife";
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
   src: url("Silverknife-Bold.woff2") format("woff2");
 }
 
@@ -26,6 +23,5 @@
   font-family: "Silverknife";
   font-weight: 700;
   font-style: italic;
-  font-display: swap;
   src: url("Silverknife-BoldItalic.woff2") format("woff2");
 }
