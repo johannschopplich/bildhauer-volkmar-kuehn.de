@@ -38,9 +38,10 @@ function preventDefault(rawEvent: TouchEvent): boolean {
  * Lock scrolling of the element
  */
 export function scrollLock(
-  element?: HTMLElement | SVGElement | Window | Document | null
+  element?: HTMLElement | SVGElement | Window | Document | null,
+  initialValue = false
 ) {
-  let isLocked = false;
+  let isLocked = initialValue;
   let initialOverflow: CSSStyleDeclaration["overflow"];
 
   if (element) {
