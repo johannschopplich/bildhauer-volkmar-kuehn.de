@@ -4,7 +4,7 @@
 /** @var \Kirby\Cms\Page $page */
 ?>
 <div class="px-lg py-xs md:sticky md:h-[100svh] md:top-0 md:left-0 md:grid md:grid-rows-[auto_1fr] md:p-0 md:overflow-hidden">
-  <div class="w-full flex justify-between items-center md:border-b md:border-white md:ml-3xl md:py-3xl md:pr-3xl lg:items-start">
+  <div class="flex justify-between items-center md:border-b md:border-white md:ml-3xl md:py-3xl md:pr-3xl lg:items-start">
     <a href="<?= $site->url() ?>" class="block font-heading leading-heading text-size-xl md:text-size-3xl"<?php e($page->isHomePage(), ' aria-current="page"') ?>>
       <?= $site->title()->escape() ?>
     </a>
@@ -18,17 +18,18 @@
 
   <nav class="navigation-panel md:flex md:flex-col md:justify-between" aria-label="primary" data-element="navigation-panel">
     <div class="h-full flex items-end pt-[5vh] md:hidden">
-      <div class="w-[75vw] translate-y-[1px] origin-bottom children:h-full children:w-full">
+      <div class="w-[75vw] mb-[-1px] children:h-full children:w-full">
         <?= asset('assets/images/logo-footer-mobile.svg')->read() ?>
       </div>
     </div>
 
-    <div class="h-full bg-primary-50 md:px-3xl md:bg-primary-700 md:h-initial">
-      <ul class="w-[75vw] py-4xl space-y-3xl md:w-full md:py-3xl md:space-y-lg" role="list">
+    <div class="h-full bg-primary-50 md:bg-primary-700">
+      <ul class="w-[75vw] py-5xl space-y-3xl md:w-full md:p-3xl md:space-y-lg md:space-y-reverse" role="list">
         <?php if ($home = $site->homePage()): ?>
           <a
             href="<?= $home->url() ?>"
-            class="navigation-link text-xl md:text-lg md:whitespace-nowrap md:hidden"<?php e($home->isOpen(), ' aria-current="page"') ?>
+            class="navigation-link text-xl md:text-lg md:whitespace-nowrap md:hidden"
+            <?php e($home->isOpen(), 'aria-current="page"') ?>
           >
             Startseite
           </a>
