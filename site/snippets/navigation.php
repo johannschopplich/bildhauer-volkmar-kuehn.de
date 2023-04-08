@@ -9,51 +9,53 @@
       <?= $site->title()->escape() ?>
     </a>
 
-    <burger-menu class="burger-menu z-20 md:hidden">
+    <burger-menu class="z-20 md:hidden">
       <button class="relative w-8 h-8 bg-transparent border-none cursor-pointer" type="button" data-element="navigation-trigger">
-        <span class="block burger-menu-bar" aria-hidden="true"></span>
+        <span class="block navigation-burger-bar" aria-hidden="true"></span>
       </button>
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel md:flex md:flex-col md:justify-between" aria-label="primary" data-element="navigation-panel">
-    <div class="h-full flex items-end pt-[5vh] md:hidden">
-      <div class="w-[75vw] mb-[-1px] children:h-full children:w-full">
-        <?= asset('assets/images/logo-footer-mobile.svg')->read() ?>
-      </div>
-    </div>
-
-    <div class="h-full bg-primary-50 md:bg-primary-700">
-      <ul class="w-[75vw] py-5xl space-y-3xl md:w-full md:p-3xl md:space-y-lg md:space-y-reverse" role="list">
-        <?php if ($home = $site->homePage()): ?>
-          <a
-            href="<?= $home->url() ?>"
-            class="navigation-link text-xl md:text-lg md:whitespace-nowrap md:hidden"
-            <?php e($home->isOpen(), 'aria-current="page"') ?>
-          >
-            Startseite
-          </a>
-        <?php endif ?>
-        <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
-          <?php $index = $item->indexOf($listedItems) + 1 ?>
-          <a
-            href="<?= $item->url() ?>"
-            class="navigation-link text-xl md:text-lg lg:whitespace-nowrap"
-            <?php e($item->isOpen(), 'aria-current="page"') ?>
-            style="--delay: <?= $index * 50 ?>ms"
-          >
-            <?= $item->title()->escape() ?>
-          </a>
-        <?php endforeach ?>
-      </ul>
-    </div>
-
-    <div class="hidden md:block">
-      <div class="animate-scale origin-bottom lg:max-w-[65%] lg:mx-auto">
-        <div class="w-full mb-[-1px] children:h-full children:w-full">
-          <?= asset('assets/images/logo-footer.svg')->read() ?>
+  <nav class="navigation-panel" aria-label="primary" data-element="navigation-panel">
+    <div class="w-min h-full grid grid-rows-[1fr_2fr] justify-center mx-auto md:w-unset md:flex md:flex-col md:justify-between md:mx-0" data-element="navigation-content">
+      <div class="h-full flex items-end pt-[5vh] md:hidden">
+        <div class="w-[75vw] mb-[-1px] children:h-full children:w-full">
+          <?= asset('assets/images/logo-footer-mobile.svg')->read() ?>
         </div>
-        <div class="w-full h-[15svh] bg-primary-600"></div>
+      </div>
+
+      <div class="h-full bg-primary-50 md:bg-primary-700">
+        <ul class="w-[75vw] py-5xl space-y-3xl md:w-full md:p-3xl md:space-y-lg md:space-y-reverse" role="list">
+          <?php if ($home = $site->homePage()): ?>
+            <a
+              href="<?= $home->url() ?>"
+              class="navigation-link text-xl md:text-lg md:whitespace-nowrap md:hidden"
+              <?php e($home->isOpen(), 'aria-current="page"') ?>
+            >
+              Startseite
+            </a>
+          <?php endif ?>
+          <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
+            <?php $index = $item->indexOf($listedItems) + 1 ?>
+            <a
+              href="<?= $item->url() ?>"
+              class="navigation-link text-xl md:text-lg lg:whitespace-nowrap"
+              <?php e($item->isOpen(), 'aria-current="page"') ?>
+              style="--delay: <?= $index * 50 ?>ms"
+            >
+              <?= $item->title()->escape() ?>
+            </a>
+          <?php endforeach ?>
+        </ul>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="animate-scale origin-bottom lg:max-w-[65%] lg:mx-auto">
+          <div class="w-full mb-[-1px] children:h-full children:w-full">
+            <?= asset('assets/images/logo-footer.svg')->read() ?>
+          </div>
+          <div class="w-full h-[15svh] bg-primary-600"></div>
+        </div>
       </div>
     </div>
   </nav>

@@ -1,3 +1,4 @@
+import { onClickOutside } from "../utils/onClickOutside";
 import { scrollLock } from "../utils/scrollLock";
 
 interface BurgerState {
@@ -48,8 +49,10 @@ class BurgerMenu extends HTMLElement {
     this.panel = document.querySelector<HTMLElement>(
       '[data-element="navigation-panel"]'
     )!;
-    this.focusableElements = getFocusableElements(this.panel);
 
+    if (!this.trigger || !this.panel) return;
+
+    this.focusableElements = getFocusableElements(this.panel);
     this.toggle();
 
     this.trigger.addEventListener("click", (event: Event) => {
@@ -66,6 +69,16 @@ class BurgerMenu extends HTMLElement {
         this.toggle("closed");
       }
     });
+
+    onClickOutside(
+      document.querySelector<HTMLElement>(
+        '[data-element="navigation-content"]'
+      )!,
+      () => {
+        this.toggle("closed");
+      },
+      { ignore: ['[data-element="navigation-trigger"]'] }
+    );
 
     const observer = new ResizeObserver(([entry]) => {
       const { contentRect } = entry;
@@ -107,6 +120,7 @@ class BurgerMenu extends HTMLElement {
       }
     }
   }
+
   updatePanelClass() {
     if (this.state.status === "open") {
       this.panel?.classList.add("is-open");

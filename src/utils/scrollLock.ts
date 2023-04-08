@@ -1,6 +1,42 @@
-export const isIOS =
-  window.navigator.userAgent &&
-  /iP(ad|hone|od)/.test(window.navigator.userAgent);
+import { isIOS } from "./shared";
+
+/**
+ * Lock scrolling of the element
+ */
+export function scrollLock(
+  element: HTMLElement | SVGElement | Window | Document,
+  initialValue = false
+) {
+  let isLocked = initialValue;
+  const initialOverflow = (element as HTMLElement).style.overflow;
+
+  const listener = (e: Event) => {
+    preventDefault(e as TouchEvent);
+  };
+
+  const lock = () => {
+    if (isLocked) return;
+    if (isIOS) {
+      element.addEventListener("touchmove", listener, { passive: false });
+    }
+    (element as HTMLElement).style.overflow = "hidden";
+    isLocked = true;
+  };
+
+  const unlock = () => {
+    if (!isLocked) return;
+    if (isIOS) {
+      element.removeEventListener("touchmove", listener);
+    }
+    (element as HTMLElement).style.overflow = initialOverflow;
+    isLocked = false;
+  };
+
+  return {
+    lock,
+    unlock,
+  };
+}
 
 function checkOverflowScroll(ele: Element): boolean {
   const style = window.getComputedStyle(ele);
@@ -32,46 +68,4 @@ function preventDefault(rawEvent: TouchEvent): boolean {
   if (e.preventDefault) e.preventDefault();
 
   return false;
-}
-
-/**
- * Lock scrolling of the element
- */
-export function scrollLock(
-  element?: HTMLElement | SVGElement | Window | Document | null,
-  initialValue = false
-) {
-  let isLocked = initialValue;
-  let initialOverflow: CSSStyleDeclaration["overflow"];
-
-  if (element) {
-    initialOverflow = (element as HTMLElement).style.overflow;
-  }
-
-  const listener = (e: Event) => {
-    preventDefault(e as TouchEvent);
-  };
-
-  const lock = () => {
-    if (!element || isLocked) return;
-    if (isIOS) {
-      element.addEventListener("touchmove", listener, { passive: false });
-    }
-    (element as HTMLElement).style.overflow = "hidden";
-    isLocked = true;
-  };
-
-  const unlock = () => {
-    if (!element || !isLocked) return;
-    if (isIOS) {
-      element.removeEventListener("touchmove", listener);
-    }
-    (element as HTMLElement).style.overflow = initialOverflow;
-    isLocked = false;
-  };
-
-  return {
-    lock,
-    unlock,
-  };
 }
