@@ -1,5 +1,4 @@
-import { onClickOutside } from "../utils/onClickOutside";
-import { scrollLock } from "../utils/scrollLock";
+import { onClickOutside, scrollLock } from "../utils";
 
 interface BurgerState {
   status: "open" | "closed";

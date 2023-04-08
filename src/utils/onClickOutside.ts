@@ -15,7 +15,7 @@ export interface OnClickOutsideOptions {
 let _iOSWorkaround = false;
 
 /**
- * Listen for clicks outside of an element
+ * Listen for clicks outside of an element.
  */
 export function onClickOutside(
   target: HTMLElement | SVGElement,
@@ -28,9 +28,9 @@ export function onClickOutside(
   // How it works: https://stackoverflow.com/a/39712411
   if (isIOS && !_iOSWorkaround) {
     _iOSWorkaround = true;
-    Array.from(document.body.children).forEach((el) =>
-      el.addEventListener("click", () => {})
-    );
+    for (const el of document.body.children) {
+      el.addEventListener("click", () => {});
+    }
   }
 
   let shouldListen = true;
@@ -63,15 +63,15 @@ export function onClickOutside(
     handler(_event);
   };
 
-  window.addEventListener("click", listener, { passive: true, capture }),
-    window.addEventListener(
-      "pointerdown",
-      (e) => {
-        if (target)
-          shouldListen = !e.composedPath().includes(target) && !shouldIgnore(e);
-      },
-      { passive: true }
-    );
+  window.addEventListener("click", listener, { passive: true, capture });
+  window.addEventListener(
+    "pointerdown",
+    (e) => {
+      if (target)
+        shouldListen = !e.composedPath().includes(target) && !shouldIgnore(e);
+    },
+    { passive: true }
+  );
 
   const stop = () => {
     window.removeEventListener("click", listener, { capture });

@@ -1,14 +1,15 @@
 import { isIOS } from "./shared";
 
 /**
- * Lock scrolling of the element
+ * Lock scrolling of the element.
  */
 export function scrollLock(
   element: HTMLElement | SVGElement | Window | Document,
   initialValue = false
 ) {
   let isLocked = initialValue;
-  const initialOverflow = (element as HTMLElement).style.overflow;
+  const _element = element as HTMLElement;
+  const initialOverflow = _element.style.overflow;
 
   const listener = (e: Event) => {
     preventDefault(e as TouchEvent);
@@ -19,7 +20,7 @@ export function scrollLock(
     if (isIOS) {
       element.addEventListener("touchmove", listener, { passive: false });
     }
-    (element as HTMLElement).style.overflow = "hidden";
+    _element.style.overflow = "hidden";
     isLocked = true;
   };
 
@@ -28,7 +29,7 @@ export function scrollLock(
     if (isIOS) {
       element.removeEventListener("touchmove", listener);
     }
-    (element as HTMLElement).style.overflow = initialOverflow;
+    _element.style.overflow = initialOverflow;
     isLocked = false;
   };
 
@@ -38,34 +39,35 @@ export function scrollLock(
   };
 }
 
-function checkOverflowScroll(ele: Element): boolean {
-  const style = window.getComputedStyle(ele);
+function checkOverflowScroll(element: Element): boolean {
+  const style = window.getComputedStyle(element);
   if (
     style.overflowX === "scroll" ||
     style.overflowY === "scroll" ||
-    (style.overflowX === "auto" && ele.clientHeight < ele.scrollHeight) ||
-    (style.overflowY === "auto" && ele.clientWidth < ele.scrollWidth)
+    (style.overflowX === "auto" &&
+      element.clientHeight < element.scrollHeight) ||
+    (style.overflowY === "auto" && element.clientWidth < element.scrollWidth)
   ) {
     return true;
-  } else {
-    const parent = ele.parentNode as Element;
-    if (!parent || parent.tagName === "BODY") return false;
-
-    return checkOverflowScroll(parent);
   }
+
+  const parent = element.parentNode as Element | null;
+  if (!parent || parent.tagName === "BODY") return false;
+
+  return checkOverflowScroll(parent);
 }
 
 function preventDefault(rawEvent: TouchEvent): boolean {
-  const e = rawEvent || window.event;
-  const _target = e.target as Element;
+  const event = rawEvent || window.event;
+  const target = event.target as Element;
 
   // Do not prevent if element or parentNodes have overflow: scroll set.
-  if (checkOverflowScroll(_target)) return false;
+  if (checkOverflowScroll(target)) return false;
 
   // Do not prevent if the event has more than one touch (usually meaning this is a multi touch gesture like pinch to zoom).
-  if (e.touches.length > 1) return true;
+  if (event.touches.length > 1) return true;
 
-  if (e.preventDefault) e.preventDefault();
+  event.preventDefault?.();
 
   return false;
 }

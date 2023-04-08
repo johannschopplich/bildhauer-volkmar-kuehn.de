@@ -1,12 +1,14 @@
-const selector = "[data-zoomable]";
+import { getRem } from "../utils";
 
 export async function install() {
-  const elements = [...document.querySelectorAll<HTMLElement>(selector)];
+  const elements = [
+    ...document.querySelectorAll<HTMLElement>("[data-zoomable]"),
+  ];
+
+  if (elements.length === 0) return;
 
   const { default: mediumZoom } = await import("medium-zoom");
-  const margin = parseFloat(
-    getComputedStyle(document.body).getPropertyValue("font-size")
-  );
+  const margin = getRem();
 
   mediumZoom(elements, {
     background: "var(--du-color-background)",
