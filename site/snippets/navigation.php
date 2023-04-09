@@ -16,7 +16,12 @@
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel" aria-label="Hauptnavigation" data-element="navigation-panel">
+  <nav
+    class="navigation-panel md:bg-[url(/assets/images/bg-grain-dark.png)] md:bg-size-$size"
+    aria-label="Hauptnavigation"
+    data-element="navigation-panel"
+    style="--size: 350px auto"
+  >
     <div
       class="w-min h-full grid grid-rows-[1fr_2fr] justify-center mx-auto md:w-unset md:flex md:flex-col md:justify-between md:mx-0"
       data-element="navigation-content"
