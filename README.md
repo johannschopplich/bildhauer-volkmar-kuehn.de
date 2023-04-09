@@ -10,7 +10,7 @@
 
 This is the website source code for the sculptor [Volkmar Kühn](https://de.wikipedia.org/wiki/Volkmar_K%C3%BChn), a German sculptor known for his works displayed in public spaces, particularly in Gera (the town I grew up in). Since 1968, he has been living and working in the former Mildenfurth monastery, which the logo represents.
 
-The artist lacks exposure on the interweb, so I decided to build a website for him. The website is built with [Kirby](https://getkirby.com), [Vite](https://vitejs.dev) and [UnoCSS](https://unocss.dev).
+The artist lacks exposure on the interweb, so I decided to build a website for him during Easter 2023. The website is built with [Kirby](https://getkirby.com), [Vite](https://vitejs.dev) and [UnoCSS](https://unocss.dev).
 
 ## Installation
 
