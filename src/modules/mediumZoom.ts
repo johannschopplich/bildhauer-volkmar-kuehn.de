@@ -5,13 +5,14 @@ export async function install() {
     ...document.querySelectorAll<HTMLElement>("[data-zoomable]"),
   ];
 
-  if (elements.length === 0) return;
+  if (!matchMedia("(min-width: 768px)").matches || elements.length === 0)
+    return;
 
   const { default: mediumZoom } = await import("medium-zoom");
   const margin = getRem();
 
   mediumZoom(elements, {
-    background: "var(--du-color-background)",
+    background: "transparent",
     margin,
   });
 }

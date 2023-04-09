@@ -16,11 +16,12 @@ if ($block->location() === 'web') {
   if ($caption->isEmpty()) $caption = $image->caption();
 
   $img = Html::img(
-    $image->placeholderUri(),
+    $image->blurhashUri(),
     [
       'data-lazyload' => 'true',
       'data-srcset' => $image->srcset(),
       'data-sizes' => 'auto',
+      'data-zoomable' => 'true',
       'width' => $image->width(),
       'height' => $image->height(),
       'alt' => $alt->isNotEmpty() ? $alt->escape() : null

@@ -4,8 +4,7 @@
     <?php /** @var \Kirby\Cms\Page $article */ ?>
     <div class="relative">
       <?php snippet('helpers/image', [
-        'image' => $article->thumbnail()->toFile(),
-        'zoomable' => true
+        'image' => $article->thumbnail()->toFile()
       ]) ?>
 
       <div class="mx-2px">

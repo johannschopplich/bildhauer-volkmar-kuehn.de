@@ -1,9 +1,9 @@
 {
   "require": {
-    "getkirby/cms": "^3.8",
+    "getkirby/cms": "^3.9",
     "johannschopplich/kirby-helpers": "^4.0",
-    "johannschopplich/kirby-blurry-placeholder": "^3.0",
-    "johannschopplich/kirby-punctuation-section": "^2.0"
+    "johannschopplich/kirby-punctuation-section": "^2.0",
+    "tobimori/kirby-blurhash": "^1.2"
   },
   "scripts": {
     "start": [

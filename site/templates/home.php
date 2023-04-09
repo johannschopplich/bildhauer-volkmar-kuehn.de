@@ -29,8 +29,7 @@ snippet('layouts/default', slots: true);
         <?php /** @var \Kirby\Cms\File $image */ ?>
         <figure>
           <?php snippet('helpers/image', [
-            'image' => $image,
-            'zoomable' => true
+            'image' => $image
           ]) ?>
 
           <?php if ($image->caption()->isNotEmpty() && !$page->isHomePage()): ?>
