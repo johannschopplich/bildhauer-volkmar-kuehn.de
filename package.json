@@ -16,6 +16,7 @@
     "medium-zoom": "^1.0.8"
   },
   "devDependencies": {
+    "@julr/unocss-preset-forms": "^0.0.5",
     "@nuxt/eslint-config": "^0.1.1",
     "@types/node": "^18.15.11",
     "@unocss/cli": "^0.50.6",

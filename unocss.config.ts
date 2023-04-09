@@ -1,4 +1,5 @@
 import { defineConfig, presetWind } from "unocss";
+import { presetForms } from "@julr/unocss-preset-forms";
 import { presetDue } from "duecss";
 
 export default defineConfig({
@@ -64,5 +65,5 @@ export default defineConfig({
     ],
   ],
 
-  presets: [presetWind(), presetDue()],
+  presets: [presetWind(), presetForms(), presetDue()],
 });

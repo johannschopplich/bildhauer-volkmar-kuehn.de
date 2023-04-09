@@ -1,24 +1,8 @@
 @use "duecss/abstracts/breakpoints";
 
-.navigation-wrapper {
-  background-color: var(--du-color-background);
-
-  // Set `data-theme` effects manually
-  @include breakpoints.media-below(md) {
-    --du-color-link-hover: var(--du-color-accent-700);
-  }
-
-  @include breakpoints.media-above(md) {
-    --du-color-background: var(--du-color-primary-700);
-    --du-color-text: white;
-    --du-color-link: var(--du-color-text);
-    --du-color-link-hover: var(--du-color-primary-200);
-  }
-}
-
-.navigation-burger-bar,
-.navigation-burger-bar::before,
-.navigation-burger-bar::after {
+.burger-menu-bar,
+.burger-menu-bar::before,
+.burger-menu-bar::after {
   position: absolute;
   left: 50%;
   width: 30px;
@@ -29,7 +13,7 @@
   transition: transform 250ms ease;
 }
 
-.navigation-burger-bar {
+.burger-menu-bar {
   top: 50%;
   transform: translateY(-50%);
 

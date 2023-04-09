@@ -10,21 +10,24 @@
     </a>
 
     <burger-menu class="z-20 md:hidden">
-      <button class="relative w-8 h-8 bg-transparent border-none cursor-pointer" type="button" data-element="navigation-trigger">
-        <span class="block navigation-burger-bar" aria-hidden="true"></span>
+      <button class="relative w-8 h-8 cursor-pointer" type="button" data-element="navigation-trigger">
+        <span class="block burger-menu-bar" aria-hidden="true"></span>
       </button>
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel" aria-label="primary" data-element="navigation-panel">
-    <div class="w-min h-full grid grid-rows-[1fr_2fr] justify-center mx-auto md:w-unset md:flex md:flex-col md:justify-between md:mx-0" data-element="navigation-content">
+  <nav class="navigation-panel" aria-label="Hauptnavigation" data-element="navigation-panel">
+    <div
+      class="w-min h-full grid grid-rows-[1fr_2fr] justify-center mx-auto md:w-unset md:flex md:flex-col md:justify-between md:mx-0"
+      data-element="navigation-content"
+    >
       <div class="h-full flex items-end pt-[5vh] md:hidden">
         <div class="w-[75vw] mb-[-1px] children:h-full children:w-full">
           <?= asset('assets/images/logo-footer-mobile.svg')->read() ?>
         </div>
       </div>
 
-      <div class="h-full bg-primary-50 md:bg-primary-700">
+      <div class="h-full bg-primary-50 md:[background-color:unset]">
         <ul class="w-[75vw] py-5xl space-y-3xl md:w-full md:p-3xl md:space-y-lg md:space-y-reverse" role="list">
           <?php if ($home = $site->homePage()): ?>
             <a

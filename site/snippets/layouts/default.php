@@ -25,8 +25,9 @@
   <?= $meta->social() ?>
 
   <meta name="theme-color" content="#776852">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" sizes="180x180">
   <?php /* <link rel="manifest" href="/manifest.json"> */ ?>
-  <?php /* <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" sizes="180x180"> */ ?>
   <?php /* <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌳</text></svg>"> */ ?>
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 
@@ -46,7 +47,7 @@
 
 <body class="min-h-[100svh] grid grid-rows-[auto_1fr] children:min-w-0 md:grid-rows-none md:grid-cols-[1fr_2fr]" data-template="<?= $page->intendedTemplate()->name() ?>">
 
-  <aside class="navigation-wrapper">
+  <aside id="sidebar">
     <a href="#main" class="skip-link">Zum Inhalt springen</a>
     <?php snippet('navigation') ?>
   </aside>
