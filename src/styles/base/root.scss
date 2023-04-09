@@ -29,8 +29,6 @@
 // Set `data-theme` effects manually
 #sidebar {
   background-color: var(--du-color-background);
-  background-image: url("/assets/images/bg-grain-dark.png");
-  background-size: 350px auto;
 
   @include breakpoints.media-below(md) {
     --du-color-link-hover: var(--du-color-accent-700);
@@ -41,5 +39,8 @@
     --du-color-text: white;
     --du-color-link: var(--du-color-text);
     --du-color-link-hover: var(--du-color-primary-200);
+
+    background-image: url("/assets/images/bg-grain-dark.png");
+    background-size: 350px auto;
   }
 }
