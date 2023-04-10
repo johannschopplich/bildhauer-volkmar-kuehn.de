@@ -33,7 +33,7 @@
             <?php $index = $item->indexOf($listedItems) + 1 ?>
             <a
               href="<?= $item->url() ?>"
-              class="navigation-link text-size-xl leading-none md:text-lg lg:whitespace-nowrap"
+              class="navigation-link text-size-xl leading-tight md:text-size-lg"
               <?php e($item->isOpen(), 'aria-current="page"') ?>
               style="--delay: <?= $index * 50 ?>ms"
             >
