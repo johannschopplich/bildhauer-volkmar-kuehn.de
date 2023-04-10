@@ -16,11 +16,30 @@ snippet('layouts/default', slots: true);
     <?php if ($page->intendedTemplate()->name() === 'articles'): ?>
       <?php snippet('articles', ['query' => $page->children()->listed()]) ?>
     <?php else: ?>
-      <section class="prose">
+      <section class="prose <?= e($page->isHomePage(), 'md:column-count-2') ?>">
         <?= $page->text()->toBlocks() ?>
       </section>
     <?php endif ?>
   </div>
+
+  <?php if ($page->isHomePage() && ($images = $page->gallery()->toFiles())->isNotEmpty()): ?>
+    <div class="mx-1 mt-5xl md:mx-3xl">
+      <div class="masonry-grid gap-1 md:gap-2" style="--masonry-col-max-w: clamp(10rem, 25vw, 15rem);">
+        <?php foreach ($images as $image): ?>
+          <?php /** @var \Kirby\Cms\File $image */ ?>
+          <figure>
+            <?php snippet('helpers/image', ['image' => $image]) ?>
+
+            <?php if ($image->caption()->isNotEmpty()): ?>
+              <figcaption class="text-sm leading-normal text-center px-sm py-xs">
+                <?= $image->caption() ?>
+              </figcaption>
+            <?php endif ?>
+          </figure>
+        <?php endforeach ?>
+      </div>
+    </div>
+  <?php endif ?>
 </div>
 
 <?php endsnippet() ?>
