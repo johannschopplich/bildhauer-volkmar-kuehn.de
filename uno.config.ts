@@ -4,6 +4,9 @@ import { presetDue } from "duecss";
 
 export default defineConfig({
   theme: {
+    maxWidth: {
+      prose: "60ch",
+    },
     colors: {
       primary: {
         DEFAULT: "#A39178",
