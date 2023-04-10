@@ -57,7 +57,7 @@
           <div class="w-full mb-[-1px] children:h-full children:w-full">
             <?= asset('assets/images/logo-footer.svg')->read() ?>
           </div>
-          <div class="w-full h-[15svh] bg-primary-600"></div>
+          <div class="w-full h-[15svh] bg-gradient-to-t from-primary-700 to-primary-600"></div>
         </div>
       </div>
     </div>
