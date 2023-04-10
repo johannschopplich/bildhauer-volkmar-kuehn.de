@@ -28,7 +28,7 @@
       </div>
 
       <div class="h-full bg-primary-50 md:[background-color:unset]">
-        <ul class="w-[75vw] px-3xl py-5xl space-y-sm md:w-full md:py-3xl md:space-y-xs" role="list">
+        <ul class="w-[75vw] px-3xl py-5xl space-y-sm md:w-full md:py-3xl md:space-y-1" role="list">
           <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
             <?php $index = $item->indexOf($listedItems) + 1 ?>
             <a
