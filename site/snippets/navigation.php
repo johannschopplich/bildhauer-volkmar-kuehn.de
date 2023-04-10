@@ -28,12 +28,12 @@
       </div>
 
       <div class="h-full bg-primary-50 md:[background-color:unset]">
-        <ul class="w-[75vw] py-5xl space-y-3xl md:w-full md:p-3xl md:space-y-lg md:space-y-reverse" role="list">
+        <ul class="w-[75vw] py-5xl space-y-3xl md:w-full md:p-3xl md:space-y-lg" role="list">
           <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
             <?php $index = $item->indexOf($listedItems) + 1 ?>
             <a
               href="<?= $item->url() ?>"
-              class="navigation-link text-xl md:text-lg lg:whitespace-nowrap"
+              class="navigation-link text-size-xl leading-none md:text-lg lg:whitespace-nowrap"
               <?php e($item->isOpen(), 'aria-current="page"') ?>
               style="--delay: <?= $index * 50 ?>ms"
             >
