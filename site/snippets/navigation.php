@@ -29,15 +29,6 @@
 
       <div class="h-full bg-primary-50 md:[background-color:unset]">
         <ul class="w-[75vw] py-5xl space-y-3xl md:w-full md:p-3xl md:space-y-lg md:space-y-reverse" role="list">
-          <?php if ($home = $site->homePage()): ?>
-            <a
-              href="<?= $home->url() ?>"
-              class="navigation-link text-xl md:text-lg md:whitespace-nowrap md:hidden"
-              <?php e($home->isOpen(), 'aria-current="page"') ?>
-            >
-              Startseite
-            </a>
-          <?php endif ?>
           <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
             <?php $index = $item->indexOf($listedItems) + 1 ?>
             <a
