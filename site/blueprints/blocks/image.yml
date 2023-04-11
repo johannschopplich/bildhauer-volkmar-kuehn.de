@@ -60,8 +60,3 @@ fields:
           de: Rechtsbündig
           en: Pulled right
         icon: grid-right
-      - value: no-default
-        text:
-          de: Kein Standard
-          en: No default
-        icon: wand
