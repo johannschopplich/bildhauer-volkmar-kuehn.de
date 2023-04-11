@@ -62,9 +62,14 @@
     }
 
     @include breakpoints.media-above(md) {
+      &:not([class]),
       &.pulled-left,
       &.full-width {
         margin-left: 0;
+      }
+
+      &:not([class]) {
+        margin-right: 0;
       }
     }
 
