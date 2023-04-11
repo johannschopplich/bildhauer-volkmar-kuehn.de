@@ -23,48 +23,36 @@
   }
 
   :where(figure) {
-    &:not([class]),
-    &.no-default,
-    &.full-width {
-      margin-left: -1.125rem;
-      margin-right: -1.125rem;
-    }
-
-    &.pulled-left {
-      width: 45%;
-      float: left;
-      margin-top: 0;
-      margin-right: 2rem;
-      margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
-      margin-left: -1.125rem;
-    }
-
-    &.pulled-right {
-      width: 45%;
-      float: right;
-      margin-top: 0;
-      margin-right: -1.125rem;
-      margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
-      margin-left: 2rem;
-    }
+    margin-left: -1.125rem; // ml-lg
+    margin-right: -1.125rem; // mr-lg
 
     @include breakpoints.media-above(sm) {
       &:not([class]),
       &.full-width,
       &.pulled-left {
-        margin-left: -1.875rem;
+        margin-left: -1.875rem; // ml-3xl
       }
 
       &:not([class]),
       &.full-width,
       &.pulled-right {
-        margin-right: -1.875rem;
+        margin-right: -1.875rem; // mr-3xl
       }
 
-      &:not([class]),
-      &.full-width {
-        margin-left: -1.875rem;
-        margin-right: -1.875rem;
+      &.pulled-left {
+        width: 45%;
+        float: left;
+        margin-top: 0;
+        margin-right: 2rem;
+        margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
+      }
+
+      &.pulled-right {
+        width: 45%;
+        float: right;
+        margin-top: 0;
+        margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
+        margin-left: 2rem;
       }
 
       &.no-default {
