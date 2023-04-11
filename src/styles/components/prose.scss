@@ -4,11 +4,11 @@
 .prose {
   --du-prose-space-y: 1.5;
 
-  :where(figure:not(:first-child):not(.pulled-left):not(pulled-right)) {
+  :where(figure:not(:first-child):not(.pulled-left):not(.pulled-right)) {
     margin-top: calc(2rem * var(--du-prose-space-y, 1));
   }
 
-  :where(figure:not(:last-child):not(.pulled-left):not(pulled-right)) {
+  :where(figure:not(:last-child):not(.pulled-left):not(.pulled-right)) {
     margin-bottom: calc(2rem * var(--du-prose-space-y, 1));
   }
 
@@ -26,12 +26,14 @@
     &.pulled-left {
       width: 45%;
       float: left;
+      margin-top: 0;
       margin-right: 2rem;
     }
 
     &.pulled-right {
       width: 45%;
       float: right;
+      margin-top: 0;
       margin-left: 2rem;
       margin-right: -1.875rem;
     }
