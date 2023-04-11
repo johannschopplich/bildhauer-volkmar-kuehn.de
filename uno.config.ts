@@ -55,8 +55,7 @@ export default defineConfig({
       /^column-count-(\d+)$/,
       ([, d], { theme }) => ({
         "column-count": d,
-        // @ts-expect-error: missing type
-        "column-gap": theme.spacing["4xl"],
+        "column-gap": (theme as any).spacing["4xl"],
       }),
     ],
     [

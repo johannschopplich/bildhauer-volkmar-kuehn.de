@@ -16,7 +16,7 @@ snippet('layouts/default', slots: true);
     <?php if ($page->intendedTemplate()->name() === 'articles'): ?>
       <?php snippet('articles', ['query' => $page->children()->listed()]) ?>
     <?php else: ?>
-      <section class="prose <?= e($page->isHomePage(), 'md:column-count-2') ?>">
+      <section class="prose">
         <?= $page->text()->toBlocks() ?>
       </section>
     <?php endif ?>
