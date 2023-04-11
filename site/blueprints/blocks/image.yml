@@ -62,6 +62,6 @@ fields:
         icon: grid-right
       - value: no-default
         text:
-          de: Keine Standardgröße
-          en: No default size
+          de: Kein Standard
+          en: No default
         icon: wand
