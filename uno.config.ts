@@ -68,5 +68,10 @@ export default defineConfig({
     ],
   ],
 
+  shortcuts: {
+    "masonry-grid":
+      "grid grid-cols-[repeat(auto-fit,minmax(min(var(--masonry-col-max-w,25rem),100%),1fr))] justify-center children:self-start", // grid-rows-[masonry]
+  },
+
   presets: [presetWind(), presetForms(), presetDue()],
 });
