@@ -4,11 +4,11 @@
 .prose {
   --du-prose-space-y: 1.5;
 
-  :where(figure:not(:first-child):not(.pulled-left):not(.pulled-right)) {
+  :where(figure:not(:first-child)) {
     margin-top: calc(2rem * var(--du-prose-space-y, 1));
   }
 
-  :where(figure:not(:last-child):not(.pulled-left):not(.pulled-right)) {
+  :where(figure:not(:last-child)) {
     margin-bottom: calc(2rem * var(--du-prose-space-y, 1));
   }
 
@@ -23,42 +23,66 @@
   }
 
   :where(figure) {
+    &:not([class]),
+    &.no-default,
+    &.full-width {
+      margin-left: -1.125rem;
+      margin-right: -1.125rem;
+    }
+
     &.pulled-left {
       width: 45%;
       float: left;
       margin-top: 0;
       margin-right: 2rem;
+      margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
+      margin-left: -1.125rem;
     }
 
     &.pulled-right {
       width: 45%;
       float: right;
       margin-top: 0;
+      margin-right: -1.125rem;
+      margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
       margin-left: 2rem;
-      margin-right: -1.875rem;
     }
 
-    &.emphasized {
-      margin-right: -1.875rem;
-    }
+    @include breakpoints.media-above(sm) {
+      &:not([class]),
+      &.full-width,
+      &.pulled-left {
+        margin-left: -1.875rem;
+      }
 
-    @include breakpoints.media-below(sm) {
-      &:not(.pulled-left):not(.pulled-right):not(.emphasized) {
+      &:not([class]),
+      &.full-width,
+      &.pulled-right {
+        margin-right: -1.875rem;
+      }
+
+      &:not([class]),
+      &.full-width {
         margin-left: -1.875rem;
         margin-right: -1.875rem;
       }
+
+      &.no-default {
+        margin-left: 0;
+        margin-right: 0;
+      }
     }
 
-    @include breakpoints.media-below(md) {
+    @include breakpoints.media-above(md) {
       &.pulled-left,
-      &.emphasized {
-        margin-left: -1.875rem;
+      &.full-width {
+        margin-left: 0;
       }
     }
 
     @include breakpoints.media-above(2xl) {
       &.pulled-right,
-      &.emphasized {
+      &.full-width {
         margin-right: calc(-25% - 1.875rem);
       }
     }
@@ -66,6 +90,8 @@
 
   :where(figcaption) {
     font-size: 0.75em;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     color: var(--du-color-contrast-medium);
     line-height: var(--du-line-height-normal);
   }

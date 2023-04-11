@@ -33,7 +33,7 @@ if ($block->location() === 'web') {
 
 ?>
 <figure <?= attr([
-  'class' => $size ?? null
+  'class' => $size->value() ?? null
 ]) ?>>
   <?php if ($link->isNotEmpty()): ?>
     <a href="<?= $link->toUrl() ?>">

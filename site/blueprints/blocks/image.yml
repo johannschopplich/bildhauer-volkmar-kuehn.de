@@ -45,13 +45,10 @@ fields:
     type: toggles
     default: normal
     options:
-      - value: normal
-        text: Normal
-        icon: wand
-      - value: emphasized
+      - value: full-width
         text:
-          de: Hervorgehoben
-          en: Emphasized
+          de: Volle Breite
+          en: Full Width
         icon: grid-bottom
       - value: pulled-left
         text:
@@ -63,3 +60,8 @@ fields:
           de: Rechtsbündig
           en: Pulled right
         icon: grid-right
+      - value: no-default
+        text:
+          de: Keine Standardgröße
+          en: No default size
+        icon: wand

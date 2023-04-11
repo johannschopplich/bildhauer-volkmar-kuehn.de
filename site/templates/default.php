@@ -12,7 +12,7 @@ snippet('layouts/default', slots: true);
     </div>
   </div>
 
-  <div class="max-w-prose mx-lg sm:mx-3xl">
+  <div class="max-w-prose px-lg mx-auto sm:px-3xl md:mx-0">
     <?php if ($page->intendedTemplate()->name() === 'articles'): ?>
       <?php snippet('articles', ['query' => $page->children()->listed()]) ?>
     <?php else: ?>
