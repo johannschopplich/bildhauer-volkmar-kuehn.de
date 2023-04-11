@@ -38,3 +38,28 @@ fields:
     label: field.blocks.image.link
     type: text
     icon: url
+  size:
+    label:
+      de: Größe
+      en: Size
+    type: toggles
+    default: normal
+    options:
+      - value: normal
+        text: Normal
+        icon: wand
+      - value: emphasized
+        text:
+          de: Hervorgehoben
+          en: Emphasized
+        icon: grid-bottom
+      - value: pulled-left
+        text:
+          de: Linksbündig
+          en: Pulled left
+        icon: grid-left
+      - value: pulled-right
+        text:
+          de: Rechtsbündig
+          en: Pulled right
+        icon: grid-right

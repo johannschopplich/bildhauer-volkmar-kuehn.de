@@ -1,13 +1,14 @@
+@use "duecss/abstracts/breakpoints";
 @use "duecss/plugins/typography";
 
 .prose {
   --du-prose-space-y: 1.5;
 
-  :where(figure:not(:first-child)) {
+  :where(figure:not(:first-child):not(.pulled-left):not(pulled-right)) {
     margin-top: calc(2rem * var(--du-prose-space-y, 1));
   }
 
-  :where(figure:not(:last-child)) {
+  :where(figure:not(:last-child):not(.pulled-left):not(pulled-right)) {
     margin-bottom: calc(2rem * var(--du-prose-space-y, 1));
   }
 
@@ -18,6 +19,46 @@
     a {
       color: inherit;
       text-decoration-line: none;
+    }
+  }
+
+  :where(figure) {
+    &.pulled-left {
+      width: 45%;
+      float: left;
+      margin-right: 2rem;
+    }
+
+    &.pulled-right {
+      width: 45%;
+      float: right;
+      margin-left: 2rem;
+      margin-right: -1.875rem;
+    }
+
+    &.emphasized {
+      margin-right: -1.875rem;
+    }
+
+    @include breakpoints.media-below(sm) {
+      &:not(.pulled-left):not(.pulled-right):not(.emphasized) {
+        margin-left: -1.875rem;
+        margin-right: -1.875rem;
+      }
+    }
+
+    @include breakpoints.media-below(md) {
+      &.pulled-left,
+      &.emphasized {
+        margin-left: -1.875rem;
+      }
+    }
+
+    @include breakpoints.media-above(2xl) {
+      &.pulled-right,
+      &.emphasized {
+        margin-right: calc(-25% - 1.875rem);
+      }
     }
   }
 

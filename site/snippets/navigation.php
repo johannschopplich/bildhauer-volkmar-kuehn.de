@@ -11,7 +11,7 @@
 
     <burger-menu class="z-20 md:hidden">
       <button class="relative w-8 h-8 cursor-pointer" type="button" data-element="navigation-trigger">
-        <span class="block burger-menu-bar" aria-hidden="true"></span>
+        <span class="burger-menu-bar" aria-hidden="true"></span>
       </button>
     </burger-menu>
   </div>

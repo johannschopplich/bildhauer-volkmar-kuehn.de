@@ -268,14 +268,11 @@ export function getTornis() {
   };
 }
 
-function throttle<T extends (...args: any[]) => void>(
-  fn: T,
-  delay = 100
-): (...args: Parameters<T>) => void {
+function throttle<T extends (...args: any[]) => void>(fn: T, delay = 100) {
   let lastCall = 0;
   let waiting = false;
 
-  return function (...args: Parameters<T>): void {
+  return function (...args: Parameters<T>) {
     const now = performance.now();
     const timeSinceLastCall = now - lastCall;
 

@@ -1,6 +1,5 @@
 type: pages
-templates:
-  - article
+template: article
 create: article
 sortBy: published desc
 info: "{{ page.published.toDate('%d.%m.%Y') }}"

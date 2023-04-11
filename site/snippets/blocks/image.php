@@ -6,7 +6,7 @@ use Kirby\Toolkit\Html;
 $alt     = $block->alt();
 $caption = $block->caption();
 $link    = $block->link();
-$props   = $block->properties();
+$size    = $block->size();
 $img     = null;
 
 if ($block->location() === 'web') {
@@ -21,7 +21,7 @@ if ($block->location() === 'web') {
       'data-lazyload' => 'true',
       'data-srcset' => $image->srcset(),
       'data-sizes' => 'auto',
-      'data-zoomable' => 'true',
+      'data-zoomable' => $link->isEmpty() ? 'true' : null,
       'width' => $image->width(),
       'height' => $image->height(),
       'alt' => $alt->isNotEmpty() ? $alt->escape() : null
@@ -33,7 +33,7 @@ if ($block->location() === 'web') {
 
 ?>
 <figure <?= attr([
-  'class' => $props ?? null
+  'class' => $size ?? null
 ]) ?>>
   <?php if ($link->isNotEmpty()): ?>
     <a href="<?= $link->toUrl() ?>">
