@@ -6,7 +6,7 @@ use Kirby\Toolkit\Html;
 if (isset($image) && !$image) return;
 
 echo Html::img($image->blurhashUri(), [
-  'data-lazyload' => 'true',
+  'loading' => 'lazy',
   'data-srcset' => $image->srcset(),
   'data-sizes' => 'auto',
   'data-zoomable' => 'true',

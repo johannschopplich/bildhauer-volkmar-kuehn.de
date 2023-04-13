@@ -18,7 +18,7 @@ if ($block->location() === 'web') {
   $img = Html::img(
     $image->blurhashUri(),
     [
-      'data-lazyload' => 'true',
+      'loading' => 'lazy',
       'data-srcset' => $image->srcset(),
       'data-sizes' => 'auto',
       'data-zoomable' => $link->isEmpty() ? 'true' : null,
