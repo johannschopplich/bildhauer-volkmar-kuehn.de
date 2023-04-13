@@ -24,6 +24,7 @@ if ($block->location() === 'web') {
       'data-zoomable' => $link->isEmpty() ? 'true' : null,
       'width' => $image->width(),
       'height' => $image->height(),
+      'style' => 'aspect-ratio: ' . $image->ratio(),
       'alt' => $alt->isNotEmpty() ? $alt->escape() : null
     ]
   );

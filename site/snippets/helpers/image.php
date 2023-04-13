@@ -12,5 +12,6 @@ echo Html::img($image->blurhashUri(), [
   'data-zoomable' => 'true',
   'width' => $image->width(),
   'height' => $image->height(),
+  'style' => 'aspect-ratio: ' . $image->ratio(),
   'alt' => $image->alt()->isNotEmpty() ? $image->alt()->escape() : null
 ]);
