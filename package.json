@@ -10,10 +10,10 @@
     "format": "prettier \"src/**/*\" --write --ignore-path .gitignore"
   },
   "dependencies": {
-    "animere": "^2.1.0",
+    "animere": "^2.1.1",
     "duecss": "^0.30.0",
     "medium-zoom": "^1.0.8",
-    "unlazy": "^0.1.0"
+    "unlazy": "^0.2.2"
   },
   "devDependencies": {
     "@julr/unocss-preset-forms": "^0.0.5",
@@ -23,13 +23,13 @@
     "concurrently": "^8.0.1",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.22",
     "prettier": "^2.8.7",
     "sass": "^1.62.0",
     "shx": "^0.3.4",
     "typescript": "^5.0.4",
     "unocss": "^0.51.4",
-    "vite": "^4.2.1",
+    "vite": "^4.2.2",
     "vite-plugin-full-reload": "^1.0.5"
   }
 }
