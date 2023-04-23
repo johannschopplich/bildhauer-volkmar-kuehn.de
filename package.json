@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.2.0",
+  "packageManager": "pnpm@8.3.1",
   "scripts": {
     "unocss": "unocss \"site/{snippets,templates}/**/*\" --out-file src/styles/uno.css",
     "dev": "rm -rf public/dist && concurrently \"npm run unocss -- --watch\" \"vite\"",
@@ -13,23 +13,23 @@
     "animere": "^2.1.1",
     "duecss": "^0.30.0",
     "medium-zoom": "^1.0.8",
-    "unlazy": "^0.2.2"
+    "unlazy": "^0.7.0"
   },
   "devDependencies": {
     "@julr/unocss-preset-forms": "^0.0.5",
     "@nuxt/eslint-config": "^0.1.1",
-    "@types/node": "^18.15.11",
-    "@unocss/cli": "^0.51.4",
+    "@types/node": "^18.16.0",
+    "@unocss/cli": "^0.51.6",
     "concurrently": "^8.0.1",
-    "eslint": "^8.38.0",
+    "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
-    "postcss": "^8.4.22",
-    "prettier": "^2.8.7",
+    "postcss": "^8.4.23",
+    "prettier": "^2.8.8",
     "sass": "^1.62.0",
     "shx": "^0.3.4",
     "typescript": "^5.0.4",
-    "unocss": "^0.51.4",
-    "vite": "^4.2.2",
+    "unocss": "^0.51.6",
+    "vite": "^4.3.1",
     "vite-plugin-full-reload": "^1.0.5"
   }
 }
