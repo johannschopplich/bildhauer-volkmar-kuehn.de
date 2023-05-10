@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@8.3.1",
+  "packageManager": "pnpm@8.5.0",
   "scripts": {
     "unocss": "unocss \"site/{snippets,templates}/**/*\" --out-file src/styles/uno.css",
     "dev": "rm -rf public/dist && concurrently \"npm run unocss -- --watch\" \"vite\"",
@@ -13,23 +13,23 @@
     "animere": "^2.1.1",
     "duecss": "^0.30.0",
     "medium-zoom": "^1.0.8",
-    "unlazy": "^0.8.8"
+    "unlazy": "^0.8.9"
   },
   "devDependencies": {
     "@julr/unocss-preset-forms": "^0.0.5",
     "@nuxt/eslint-config": "^0.1.1",
-    "@types/node": "^18.16.1",
-    "@unocss/cli": "^0.51.8",
+    "@types/node": "^18.16.6",
+    "@unocss/cli": "^0.51.12",
     "concurrently": "^8.0.1",
-    "eslint": "^8.39.0",
+    "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "shx": "^0.3.4",
     "typescript": "^5.0.4",
-    "unocss": "^0.51.8",
-    "vite": "^4.3.2",
+    "unocss": "^0.51.12",
+    "vite": "^4.3.5",
     "vite-plugin-full-reload": "^1.0.5"
   }
 }

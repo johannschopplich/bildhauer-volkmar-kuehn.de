@@ -3,7 +3,7 @@
     "getkirby/cms": "^3.9",
     "johannschopplich/kirby-helpers": "^4.0",
     "johannschopplich/kirby-punctuation-section": "^2.0",
-    "tobimori/kirby-blurhash": "^1.2"
+    "tobimori/kirby-thumbhash": "^1.0"
   },
   "scripts": {
     "start": [

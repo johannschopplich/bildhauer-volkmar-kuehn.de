@@ -5,7 +5,7 @@ use Kirby\Toolkit\Html;
 /** @var \Kirby\Cms\File|null $image */
 if (isset($image) && !$image) return;
 
-echo Html::img($image->blurhashUri(), [
+echo Html::img($image->thumbhashUri(), [
   'loading' => 'lazy',
   'data-srcset' => $image->srcset(),
   'data-sizes' => 'auto',
