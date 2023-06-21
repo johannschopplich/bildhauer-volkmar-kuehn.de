@@ -8,8 +8,8 @@ sections:
     headline:
       de: Dateien
       en: files
-    template: image
+    template: file
     empty:
-      de: Noch keine Bilder
-      en: No images yet
+      de: Noch keine Dateien
+      en: No files yet
     layout: table
