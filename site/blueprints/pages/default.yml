@@ -21,3 +21,4 @@ tabs:
           helpers: sections/punctuation
 
   images: tabs/images
+  files: tabs/files

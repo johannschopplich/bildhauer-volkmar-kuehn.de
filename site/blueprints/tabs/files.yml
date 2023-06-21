@@ -1,0 +1,15 @@
+label:
+  de: Dateien
+  en: files
+icon: attachment
+sections:
+  images:
+    type: files
+    headline:
+      de: Dateien
+      en: files
+    template: image
+    empty:
+      de: Noch keine Bilder
+      en: No images yet
+    layout: table
