@@ -73,7 +73,8 @@
       .navigation-link {
         transform: translateY(0);
         opacity: 1;
-        transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55)
+        transition:
+          transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55)
             calc(var(--delay, 0ms) + 100ms),
           opacity 500ms ease calc(var(--delay, 0ms) + 200ms);
       }

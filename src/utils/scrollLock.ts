@@ -5,7 +5,7 @@ import { isIOS } from "./shared";
  */
 export function scrollLock(
   element: HTMLElement | SVGElement | Window | Document,
-  initialValue = false
+  initialValue = false,
 ) {
   let isLocked = initialValue;
   const _element = element as HTMLElement;

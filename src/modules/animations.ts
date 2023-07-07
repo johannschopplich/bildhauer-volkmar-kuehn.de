@@ -15,7 +15,7 @@ function updateViewportProps({ scroll, size }: TornisData) {
 
     document.documentElement.style.setProperty(
       "--scrollY",
-      scrollOffset.toString()
+      scrollOffset.toString(),
     );
   }
 }

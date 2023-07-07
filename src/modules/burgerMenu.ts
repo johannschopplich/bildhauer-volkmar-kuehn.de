@@ -37,16 +37,16 @@ class BurgerMenu extends HTMLElement {
 
           return result;
         },
-      }
+      },
     );
   }
 
   connectedCallback() {
     this.trigger = this.querySelector<HTMLElement>(
-      '[data-element="navigation-trigger"]'
+      '[data-element="navigation-trigger"]',
     )!;
     this.panel = document.querySelector<HTMLElement>(
-      '[data-element="navigation-panel"]'
+      '[data-element="navigation-panel"]',
     )!;
 
     if (!this.trigger || !this.panel) return;
@@ -71,12 +71,12 @@ class BurgerMenu extends HTMLElement {
 
     onClickOutside(
       document.querySelector<HTMLElement>(
-        '[data-element="navigation-content"]'
+        '[data-element="navigation-content"]',
       )!,
       () => {
         this.toggle("closed");
       },
-      { ignore: ['[data-element="navigation-trigger"]'] }
+      { ignore: ['[data-element="navigation-trigger"]'] },
     );
 
     const observer = new ResizeObserver(([entry]) => {
@@ -141,6 +141,6 @@ export function install() {
  */
 function getFocusableElements(parent: HTMLElement) {
   return parent.querySelectorAll<HTMLElement>(
-    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)'
+    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)',
   );
 }

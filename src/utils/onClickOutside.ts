@@ -20,7 +20,7 @@ let _iOSWorkaround = false;
 export function onClickOutside(
   target: HTMLElement | SVGElement,
   handler: (evt: PointerEvent) => void,
-  options: OnClickOutsideOptions = {}
+  options: OnClickOutsideOptions = {},
 ) {
   const { ignore = [], capture = true } = options;
 
@@ -38,7 +38,7 @@ export function onClickOutside(
   const shouldIgnore = (event: PointerEvent) => {
     return ignore.some((target) => {
       return Array.from(document.querySelectorAll(target)).some(
-        (el) => el === event.target || event.composedPath().includes(el)
+        (el) => el === event.target || event.composedPath().includes(el),
       );
     });
   };
@@ -70,7 +70,7 @@ export function onClickOutside(
       if (target)
         shouldListen = !e.composedPath().includes(target) && !shouldIgnore(e);
     },
-    { passive: true }
+    { passive: true },
   );
 
   const stop = () => {

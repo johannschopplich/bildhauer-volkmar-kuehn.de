@@ -30,7 +30,7 @@ export function initMasonryGrid(selectors = ".masonry-grid") {
 
     const debouncedUpdateGridItems = debounce(updateGridItems, 100);
     const resizeObserver = new ResizeObserver(() =>
-      debouncedUpdateGridItems(grid)
+      debouncedUpdateGridItems(grid),
     );
     resizeObserver.observe(grid.el);
   }
@@ -38,7 +38,7 @@ export function initMasonryGrid(selectors = ".masonry-grid") {
 
 function updateGridItems(grid: GridInstance) {
   const columns = getComputedStyle(grid.el).gridTemplateColumns.split(
-    " "
+    " ",
   ).length;
 
   for (const column of grid.items) {
