@@ -29,6 +29,10 @@ export default defineConfig(({ mode }) => {
       },
     },
 
+    define: {
+      __ENABLE_HASH_DECODING__: false,
+    },
+
     plugins: [
       FullReload("site/{snippets,templates}/**/*"),
       ...(isProd

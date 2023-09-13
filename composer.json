@@ -1,7 +1,7 @@
 {
   "require": {
     "getkirby/cms": "^3.9",
-    "johannschopplich/kirby-helpers": "^4.0",
+    "johannschopplich/kirby-helpers": "^4.1",
     "johannschopplich/kirby-punctuation-section": "^2.0",
     "tobimori/kirby-thumbhash": "^1.0"
   },
