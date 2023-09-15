@@ -3,5 +3,5 @@ export const isIOS =
   /iP(ad|hone|od)/.test(window.navigator.userAgent);
 
 export function getRem() {
-  return parseFloat(getComputedStyle(document.body).fontSize);
+  return Number.parseFloat(getComputedStyle(document.body).fontSize);
 }
