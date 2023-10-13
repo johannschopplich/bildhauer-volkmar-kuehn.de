@@ -1,13 +1,13 @@
 label:
   de: Dateien
-  en: files
+  en: Files
 icon: attachment
 sections:
   images:
     type: files
     headline:
       de: Dateien
-      en: files
+      en: Files
     template: file
     empty:
       de: Noch keine Dateien

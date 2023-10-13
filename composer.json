@@ -1,10 +1,12 @@
 {
   "require": {
-    "getkirby/cms": "^3.9",
-    "johannschopplich/kirby-helpers": "^4.1",
-    "johannschopplich/kirby-punctuation-section": "^2.0",
+    "getkirby/cms": "^4",
+    "johannschopplich/kirby-helpers": "^4.2",
+    "johannschopplich/kirby-punctuation-section": "^3.0",
     "tobimori/kirby-thumbhash": "^1.0"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "scripts": {
     "start": [
       "Composer\\Config::disableProcessTimeout",

@@ -1,0 +1,8 @@
+label:
+  de: Beschreibung (Überschreiben)
+  en: Description (Override)
+type: textarea
+buttons: false
+help:
+  de: Eine kurze Beschreibung für Suchmaschinen.
+  en: A short description for search engines.

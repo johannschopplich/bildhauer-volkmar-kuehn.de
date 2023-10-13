@@ -68,13 +68,20 @@ tabs:
       - width: 1/2
         sections:
           meta:
-            extends: sections/meta
             type: fields
             fields:
+              customTitle: fields/customTitle
+              description: fields/description
               thumbnail:
+                label:
+                  de: Vorschaubild
+                  en: Thumbnail
+                type: files
                 query: kirby.site.files.template("image")
                 uploads:
                   parent: kirby.site
                   template: image
+                multiple: false
+                translate: false
 
   images: tabs/images
