@@ -36,10 +36,6 @@ tabs:
 
       - width: 1/3
         sections:
-          meta:
-            extends: sections/meta
-            fields:
-              thumbnail:
-                query: page.files.template("image")
+          meta: sections/meta
 
   images: tabs/images
