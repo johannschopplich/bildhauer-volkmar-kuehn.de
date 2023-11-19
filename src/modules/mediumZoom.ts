@@ -1,4 +1,5 @@
 import { getRem } from "../utils";
+import 'medium-zoom/dist/style.css'
 
 export async function install() {
   const elements = [
@@ -8,7 +9,7 @@ export async function install() {
   if (!matchMedia("(min-width: 768px)").matches || elements.length === 0)
     return;
 
-  const { default: mediumZoom } = await import("medium-zoom");
+  const { default: mediumZoom } = await import("medium-zoom/dist/pure");
   const margin = getRem();
 
   mediumZoom(elements, {
