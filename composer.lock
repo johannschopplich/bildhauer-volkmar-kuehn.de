@@ -272,16 +272,16 @@
         },
         {
             "name": "getkirby/cms",
-            "version": "4.0.0-rc.1",
+            "version": "4.0.0-rc.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getkirby/kirby.git",
-                "reference": "da7346e7abd09cef271ce03eba637e739a85bb67"
+                "reference": "02eea268819ddb770b91479370c62d53f1c38790"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getkirby/kirby/zipball/da7346e7abd09cef271ce03eba637e739a85bb67",
-                "reference": "da7346e7abd09cef271ce03eba637e739a85bb67",
+                "url": "https://api.github.com/repos/getkirby/kirby/zipball/02eea268819ddb770b91479370c62d53f1c38790",
+                "reference": "02eea268819ddb770b91479370c62d53f1c38790",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +307,7 @@
                 "phpmailer/phpmailer": "6.8.1",
                 "symfony/polyfill-intl-idn": "1.28.0",
                 "symfony/polyfill-mbstring": "1.28.0",
-                "symfony/yaml": "6.3.7"
+                "symfony/yaml": "6.3.8"
             },
             "replace": {
                 "symfony/polyfill-php72": "*"
@@ -371,7 +371,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-11-10T09:53:21+00:00"
+            "time": "2023-11-24T19:47:33+00:00"
         },
         {
             "name": "getkirby/composer-installer",
@@ -1514,16 +1514,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v6.3.7",
+            "version": "v6.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "9758b6c69d179936435d0ffb577c3708d57e38a8"
+                "reference": "3493af8a8dad7fa91c77fa473ba23ecd95334a92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/9758b6c69d179936435d0ffb577c3708d57e38a8",
-                "reference": "9758b6c69d179936435d0ffb577c3708d57e38a8",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/3493af8a8dad7fa91c77fa473ba23ecd95334a92",
+                "reference": "3493af8a8dad7fa91c77fa473ba23ecd95334a92",
                 "shasum": ""
             },
             "require": {
@@ -1566,7 +1566,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v6.3.7"
+                "source": "https://github.com/symfony/yaml/tree/v6.3.8"
             },
             "funding": [
                 {
@@ -1582,7 +1582,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-28T23:31:00+00:00"
+            "time": "2023-11-06T10:58:05+00:00"
         },
         {
             "name": "tobimori/kirby-thumbhash",

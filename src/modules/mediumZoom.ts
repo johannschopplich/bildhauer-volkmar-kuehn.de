@@ -1,5 +1,5 @@
 import { getRem } from "../utils";
-import 'medium-zoom/dist/style.css'
+import "medium-zoom/dist/style.css";
 
 export async function install() {
   const elements = [

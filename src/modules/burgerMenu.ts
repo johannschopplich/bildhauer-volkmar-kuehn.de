@@ -16,7 +16,7 @@ class BurgerMenu extends HTMLElement {
   constructor() {
     super();
 
-    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    // eslint-disable-next-line ts/no-this-alias
     const self = this;
 
     this.state = new Proxy<BurgerState>(
