@@ -5,8 +5,6 @@
     "johannschopplich/kirby-punctuation-section": "^3.0",
     "tobimori/kirby-thumbhash": "^1.1"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "scripts": {
     "start": [
       "Composer\\Config::disableProcessTimeout",
