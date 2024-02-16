@@ -18,9 +18,9 @@
   <?= $meta->social() ?>
 
   <meta name="theme-color" content="#776852">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" sizes="180x180">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
 
   <?= vite()->js('main.ts') ?>
   <?= vite()->css('main.ts') ?>
@@ -32,9 +32,6 @@
       'assets/fonts/Jost.css'
     ]) ?>
   <?php endif ?>
-
-
-  <script defer data-domain="bildhauer-volkmar-kuehn.de" src="https://plausible.io/js/script.js"></script>
 
 </head>
 
