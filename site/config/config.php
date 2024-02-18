@@ -29,7 +29,7 @@ return [
 
     'johannschopplich.helpers' => [
         'sitemap' => [
-            'enable' => true
+            'enabled' => true
         ]
     ]
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7cae5fd0c76a805a62d64764a80efaa2",
+    "content-hash": "f4e51c5fffb5250bba7690f98a483911",
     "packages": [
         {
             "name": "christian-riesen/base32",
@@ -484,25 +484,25 @@
         },
         {
             "name": "johannschopplich/kirby-helpers",
-            "version": "5.0.0",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johannschopplich/kirby-helpers.git",
-                "reference": "5ca86d8a2c94155183563fa65b6ae285e523e805"
+                "reference": "203bbeeb835fae24ff271c7a61e91aed30ef65eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johannschopplich/kirby-helpers/zipball/5ca86d8a2c94155183563fa65b6ae285e523e805",
-                "reference": "5ca86d8a2c94155183563fa65b6ae285e523e805",
+                "url": "https://api.github.com/repos/johannschopplich/kirby-helpers/zipball/203bbeeb835fae24ff271c7a61e91aed30ef65eb",
+                "reference": "203bbeeb835fae24ff271c7a61e91aed30ef65eb",
                 "shasum": ""
             },
             "require": {
                 "getkirby/composer-installer": "^1.2",
-                "vlucas/phpdotenv": "^5.0"
+                "vlucas/phpdotenv": "^5.6"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "@stable",
-                "getkirby/cms": "^3.9"
+                "getkirby/cms": "^4"
             },
             "type": "kirby-plugin",
             "extra": {
@@ -527,7 +527,7 @@
                     "homepage": "https://johannschopplich.com"
                 }
             ],
-            "description": "Dotenv support, meta tags generation and more for the Kirby CMS",
+            "description": "Dotenv support, meta tag generation and more for Kirby CMS",
             "homepage": "https://github.com/johannschopplich/kirby-helpers#readme",
             "keywords": [
                 "dotenv",
@@ -542,9 +542,9 @@
             ],
             "support": {
                 "issues": "https://github.com/johannschopplich/kirby-helpers/issues",
-                "source": "https://github.com/johannschopplich/kirby-helpers/tree/v5.0.0"
+                "source": "https://github.com/johannschopplich/kirby-helpers/tree/v6.1.1"
             },
-            "time": "2023-11-19T12:33:19+00:00"
+            "time": "2024-02-08T08:54:12+00:00"
         },
         {
             "name": "johannschopplich/kirby-punctuation-section",
