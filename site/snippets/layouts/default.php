@@ -24,16 +24,17 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
 
+  <?php if (vite()->isDev()) : ?>
+    <?= css('assets/dev/index.css?v=' . time(), ['id' => 'vite-dev-css']) ?>
+  <?php endif ?>
+
   <?= vite()->js('main.ts') ?>
   <?= vite()->css('main.ts') ?>
 
-  <?php if (vite()->isDev()) : ?>
-    <?= css('assets/dev/index.css?v=' . time(), ['id' => 'vite-dev-css']) ?>
-    <?= css([
-      'assets/fonts/Silverknife.css',
-      'assets/fonts/Jost.css'
-    ]) ?>
-  <?php endif ?>
+  <?= css([
+    'assets/fonts/Silverknife.css',
+    'assets/fonts/Jost.css'
+  ]) ?>
 
 </head>
 
