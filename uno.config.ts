@@ -1,8 +1,8 @@
-import { defineConfig, presetWind } from "unocss";
-import { presetForms } from "@julr/unocss-preset-forms";
-import { presetDue } from "duecss";
+import type { Theme } from "@unocss/preset-wind3";
+import presetDue from "duecss";
+import { defineConfig, presetWind3 } from "unocss";
 
-export default defineConfig({
+export default defineConfig<Theme>({
   theme: {
     maxWidth: {
       prose: "60ch",
@@ -55,7 +55,7 @@ export default defineConfig({
       /^column-count-(\d+)$/,
       ([, d], { theme }) => ({
         "column-count": d,
-        "column-gap": (theme as any).spacing["4xl"],
+        "column-gap": theme.spacing?.["4xl"],
       }),
     ],
     [
@@ -72,5 +72,5 @@ export default defineConfig({
       "grid grid-cols-[repeat(auto-fit,minmax(min(var(--masonry-col-max-w,25rem),100%),1fr))] justify-center children:self-start", // grid-rows-[masonry]
   },
 
-  presets: [presetWind(), presetForms(), presetDue()],
+  presets: [presetWind3(), presetDue()],
 });

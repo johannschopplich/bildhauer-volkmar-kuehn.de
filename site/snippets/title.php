@@ -1,4 +1,5 @@
 <?php
+
 /** @var string $title */
 /** @var string|null $props */
 ?>

@@ -1,10 +1,12 @@
 <?php
+
 /** @var \Kirby\Cms\App $kirby */
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 ?>
 <!DOCTYPE html>
 <html class=" var-color-primary var-color-primary-200 var-color-primary-500 var-color-primary-700 var-color-accent-700" lang="de">
+
 <head>
 
   <meta charset="utf-8">
@@ -51,4 +53,5 @@
   </main>
 
 </body>
+
 </html>

@@ -15,7 +15,7 @@ return [
     'cache' => [
         'pages' => [
             'active' => env('KIRBY_CACHE', false),
-            'ignore' => fn (\Kirby\Cms\Page $page) => $page->kirby()->user() !== null
+            'ignore' => fn(\Kirby\Cms\Page $page) => $page->kirby()->user() !== null
         ]
     ],
 

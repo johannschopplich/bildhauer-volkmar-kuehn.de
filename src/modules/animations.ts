@@ -1,5 +1,5 @@
-import { getTornis } from "../utils";
 import type { TornisData } from "../utils";
+import { getTornis } from "../utils";
 
 export function install() {
   const { watchViewport } = getTornis();

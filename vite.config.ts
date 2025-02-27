@@ -1,11 +1,11 @@
-import { resolve } from "node:path";
-import { mkdirSync, writeFileSync } from "node:fs";
+import type { Plugin as PostCSSPlugin } from "postcss";
+import * as fs from "node:fs";
+import * as path from "node:path";
+import * as url from "node:url";
 import { defineConfig } from "vite";
 import FullReload from "vite-plugin-full-reload";
-import { FontaineTransform } from "fontaine";
-import type { Plugin as PostCSSPlugin } from "postcss";
 
-const currentDir = new URL(".", import.meta.url).pathname;
+const currentDir = url.fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
@@ -15,12 +15,16 @@ export default defineConfig(({ mode }) => {
     base: isProd ? "/dist/" : "/",
 
     build: {
-      outDir: resolve(currentDir, "public/dist"),
+      outDir: path.resolve(currentDir, "public/dist"),
       emptyOutDir: true,
       manifest: true,
       rollupOptions: {
-        input: resolve(currentDir, "src/main.ts"),
+        input: path.resolve(currentDir, "src/main.ts"),
       },
+    },
+
+    define: {
+      __UNLAZY_LOGGING__: false,
     },
 
     css: {
@@ -29,29 +33,11 @@ export default defineConfig(({ mode }) => {
       },
     },
 
-    define: {
-      __UNLAZY_HASH_DECODING__: false,
-    },
+    plugins: [FullReload("site/{snippets,templates}/**/*")],
 
-    plugins: [
-      FullReload("site/{snippets,templates}/**/*"),
-      ...(isProd
-        ? [
-            FontaineTransform.vite({
-              fallbacks: [
-                "-apple-system",
-                "Segoe UI",
-                "Roboto",
-                "Helvetica Neue",
-                "Arial",
-              ],
-              resolvePath: (id) =>
-                new URL(`public/assets/fonts/${id}`, import.meta.url),
-              overrideName: (name) => `${name} override`,
-            }),
-          ]
-        : []),
-    ],
+    server: {
+      cors: true,
+    },
   };
 });
 
@@ -63,9 +49,9 @@ function exportDevStyles(): PostCSSPlugin {
   return {
     postcssPlugin: "postcss-vite-dev-css",
     OnceExit(root) {
-      const outDir = resolve(currentDir, "public/assets/dev");
-      mkdirSync(outDir, { recursive: true });
-      writeFileSync(resolve(outDir, "index.css"), root.toResult().css);
+      const outDir = path.resolve(currentDir, "public/assets/dev");
+      fs.mkdirSync(outDir, { recursive: true });
+      fs.writeFileSync(path.resolve(outDir, "index.css"), root.toResult().css);
     },
   };
 }

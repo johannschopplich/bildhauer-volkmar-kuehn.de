@@ -1,4 +1,6 @@
-<?php /** @var \Kirby\Cms\Collection $query */ ?>
+<?php
+
+/** @var \Kirby\Cms\Collection $query */ ?>
 <div class="masonry-grid gap-x-xs gap-y-3xl" style="--masonry-col-max-w: 10rem;">
   <?php foreach ($query as $article): ?>
     <?php /** @var \Kirby\Cms\Page $article */ ?>

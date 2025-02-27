@@ -1,11 +1,12 @@
 <?php
+
 /** @var \Kirby\Cms\App $kirby */
 /** @var \Kirby\Cms\Site $site */
 /** @var \Kirby\Cms\Page $page */
 ?>
 <div class="px-lg py-xs md:sticky md:h-[100svh] md:top-0 md:left-0 md:grid md:grid-rows-[auto_1fr] md:p-0 md:overflow-hidden md:bg-[url(/assets/images/bg-grain-dark.png)] md:bg-size-$size" style="--size: 350px auto">
   <div class="flex justify-between items-center md:border-b md:border-white md:ml-3xl md:py-3xl md:pr-3xl lg:items-start">
-    <a href="<?= $site->url() ?>" class="block font-heading leading-heading text-size-xl md:text-size-3xl"<?php e($page->isHomePage(), ' aria-current="page"') ?>>
+    <a href="<?= $site->url() ?>" class="block font-heading leading-heading text-size-xl md:text-size-3xl" <?php e($page->isHomePage(), ' aria-current="page"') ?>>
       <?= $site->title()->escape() ?>
     </a>
 
@@ -19,8 +20,7 @@
   <nav class="navigation-panel" aria-label="Hauptnavigation" data-element="navigation-panel">
     <div
       class="w-min h-full grid grid-rows-[1fr_2fr] justify-center mx-auto md:w-unset md:flex md:flex-col md:justify-between md:mx-0"
-      data-element="navigation-content"
-    >
+      data-element="navigation-content">
       <div class="h-full flex items-end pt-[5vh] md:hidden">
         <div class="w-[75vw] mb-[-1px] children:h-full children:w-full">
           <?= asset('assets/images/logo-footer-mobile.svg')->read() ?>
@@ -35,8 +35,7 @@
               href="<?= $item->url() ?>"
               class="navigation-link text-size-xl leading-tight md:text-size-lg"
               <?php e($item->isOpen(), 'aria-current="page"') ?>
-              style="--delay: <?= $index * 50 ?>ms"
-            >
+              style="--delay: <?= $index * 50 ?>ms">
               <?= $item->title()->escape() ?>
             </a>
           <?php endforeach ?>

@@ -1,6 +1,6 @@
 <?php
 
-return fn (\Kirby\Cms\App $kirby, \Kirby\Cms\Site $site, \Kirby\Cms\Page $page) => [
+return fn(\Kirby\Cms\App $kirby, \Kirby\Cms\Site $site, \Kirby\Cms\Page $page) => [
     'jsonld' => [
         'WebSite' => [
             'name' => $site->title()->value(),

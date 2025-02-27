@@ -1,8 +1,8 @@
 @use "duecss/abstracts/breakpoints";
 
 :root {
-  --du-font-family-normal: "Jost", "Jost override";
-  --du-font-family-heading: "Silverknife", "Silverknife override";
+  --du-font-family-normal: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --du-font-family-heading: "Silverknife", ui-serif, serif;
   --du-text-scale-ratio: 1.333;
   --du-line-height-heading: calc(1ex / 0.6);
 
