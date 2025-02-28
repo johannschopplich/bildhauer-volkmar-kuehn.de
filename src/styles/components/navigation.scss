@@ -1,4 +1,4 @@
-@use "duecss/abstracts/breakpoints";
+@use "../abstracts/breakpoints";
 
 .burger-menu-bar,
 .burger-menu-bar::before,
@@ -87,11 +87,11 @@
   display: block;
 
   &[aria-current="page"] {
-    color: var(--du-color-link);
+    color: var(--un-color-link);
     text-decoration-line: underline;
     text-decoration-style: solid;
-    text-decoration-thickness: var(--du-decoration-thickness);
-    text-underline-offset: var(--du-decoration-offset);
+    text-decoration-thickness: var(--un-decoration-thickness);
+    text-underline-offset: var(--un-decoration-offset);
   }
 
   @include breakpoints.media-below(md) {

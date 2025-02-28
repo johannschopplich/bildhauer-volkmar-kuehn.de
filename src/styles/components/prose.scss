@@ -1,20 +1,19 @@
-@use "duecss/abstracts/breakpoints";
-@use "duecss/plugins/typography";
+@use "../abstracts/breakpoints";
 
 .prose {
-  --du-prose-space-y: 1.5;
+  --un-prose-space-y: 1.5;
 
   :where(figure:not(:first-child)) {
-    margin-top: calc(2rem * var(--du-prose-space-y, 1));
+    margin-top: calc(2rem * var(--un-prose-space-y, 1));
   }
 
   :where(figure:not(:last-child)) {
-    margin-bottom: calc(2rem * var(--du-prose-space-y, 1));
+    margin-bottom: calc(2rem * var(--un-prose-space-y, 1));
   }
 
   :where(h1, h2, h3, h4, h5, h6) {
     font-weight: 400;
-    font-family: var(--du-font-family-heading);
+    font-family: var(--un-font-family-heading);
 
     a {
       color: inherit;
@@ -44,14 +43,14 @@
         float: left;
         margin-top: 0;
         margin-right: 2rem;
-        margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
+        margin-bottom: calc(0.5rem * var(--un-prose-space-y, 1));
       }
 
       &.pulled-right {
         width: 45%;
         float: right;
         margin-top: 0;
-        margin-bottom: calc(0.5rem * var(--du-prose-space-y, 1));
+        margin-bottom: calc(0.5rem * var(--un-prose-space-y, 1));
         margin-left: 2rem;
       }
     }
@@ -80,7 +79,7 @@
     font-size: 0.75em;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    color: var(--du-color-contrast-medium);
-    line-height: var(--du-line-height-normal);
+    color: var(--un-color-contrast-medium);
+    line-height: var(--un-line-height-normal);
   }
 }

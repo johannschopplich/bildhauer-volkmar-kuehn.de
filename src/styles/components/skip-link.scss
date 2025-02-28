@@ -3,14 +3,14 @@
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: var(--du-color-primary-500);
+  background-color: var(--un-color-primary-500);
   color: white;
   text-decoration: none;
   padding: 0.5rem 0.75rem;
   z-index: 30;
 
   &:hover {
-    background-color: var(--du-color-primary-700);
+    background-color: var(--un-color-primary-700);
     color: white;
   }
 

@@ -1,8 +1,14 @@
-import type { Theme } from "@unocss/preset-wind3";
-import presetDue from "duecss";
-import { defineConfig, presetWind3 } from "unocss";
+import type { Theme } from "@unocss/preset-wind";
+import { defineConfig, presetWind } from "unocss";
+import { rules } from "./src/unocss";
 
 export default defineConfig<Theme>({
+  cli: {
+    entry: {
+      patterns: ["site/{snippets,templates}/**/*"],
+      outFile: "src/styles/uno.css",
+    },
+  },
   theme: {
     maxWidth: {
       prose: "60ch",
@@ -34,23 +40,48 @@ export default defineConfig<Theme>({
         800: "#3A445D",
         900: "#242B3A",
       },
-      tertiary: {
-        DEFAULT: "#BB674F",
-        50: "#EED9D3",
-        100: "#E8CDC5",
-        200: "#DDB3A7",
-        300: "#D19A8A",
-        400: "#C6806D",
-        500: "#BB674F",
-        600: "#A2553F",
-        700: "#7A402F",
-        800: "#512B20",
-        900: "#291510",
+      link: {
+        DEFAULT: "var(--un-color-link)",
+        hover: "var(--un-color-link-hover)",
       },
+      theme: {
+        base: "var(--un-color-text)",
+        background: "var(--un-color-background)",
+      },
+      contrast: {
+        lowest: "var(--un-color-contrast-lowest)",
+        lower: "var(--un-color-contrast-lower)",
+        low: "var(--un-color-contrast-low)",
+        medium: "var(--un-color-contrast-medium)",
+        high: "var(--un-color-contrast-high)",
+        higher: "var(--un-color-contrast-higher)",
+      },
+    },
+    borderRadius: {
+      DEFAULT: "0.125rem",
+    },
+    fontSize: {
+      xs: ["0.75rem", "var(--un-line-height-normal)"],
+      sm: ["0.875rem", "var(--un-line-height-normal)"],
+      base: ["1rem", "var(--un-line-height-normal)"],
+      lg: ["var(--un-text-lg)", "var(--un-line-height-heading)"],
+      xl: ["var(--un-text-xl)", "var(--un-line-height-heading)"],
+      "2xl": ["var(--un-text-2xl)", "var(--un-line-height-heading)"],
+      "3xl": ["var(--un-text-3xl)", "var(--un-line-height-heading)"],
+      "4xl": ["var(--un-text-4xl)", "var(--un-line-height-heading)"],
+    },
+    fontFamily: {
+      normal: "var(--un-font-family-normal)",
+      heading: "var(--un-font-family-heading)",
+    },
+    lineHeight: {
+      normal: "var(--un-line-height-normal)",
+      heading: "var(--un-line-height-heading)",
     },
   },
 
   rules: [
+    ...rules,
     [
       /^column-count-(\d+)$/,
       ([, d], { theme }) => ({
@@ -72,5 +103,5 @@ export default defineConfig<Theme>({
       "grid grid-cols-[repeat(auto-fit,minmax(min(var(--masonry-col-max-w,25rem),100%),1fr))] justify-center children:self-start", // grid-rows-[masonry]
   },
 
-  presets: [presetWind3(), presetDue()],
+  presets: [presetWind()],
 });

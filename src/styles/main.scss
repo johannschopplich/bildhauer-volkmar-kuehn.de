@@ -1,8 +1,6 @@
-@use "duecss/reset";
-@use "duecss/base";
-
-@use "base/root";
-@use "base/generic";
+@use "base/reset";
+@use "base/base";
+@use "base/typography";
 
 @use "components/medium-zoom";
 @use "components/navigation";

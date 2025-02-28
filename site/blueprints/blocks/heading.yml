@@ -7,7 +7,7 @@ fields:
     label: field.blocks.heading.level
     type: select
     empty: false
-    default: "h2"
+    default: h2
     width: 1/6
     options:
       # - h1
