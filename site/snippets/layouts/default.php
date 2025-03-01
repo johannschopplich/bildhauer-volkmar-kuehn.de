@@ -5,7 +5,7 @@
 /** @var \Kirby\Cms\Page $page */
 ?>
 <!DOCTYPE html>
-<html class="overscroll-none var-color-primary var-color-primary-200 var-color-primary-500 var-color-primary-700 var-color-accent-700" lang="de">
+<html class="var-color-primary var-color-primary-200 var-color-primary-500 var-color-primary-700 var-color-accent-700 md:overscroll-none" lang="de">
 
 <head>
 
