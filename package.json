@@ -1,7 +1,7 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.24.0",
   "scripts": {
     "dev": "rm -rf public/dist && concurrently \"unocss --watch\" \"vite\"",
     "build": "unocss && vite build",
@@ -12,24 +12,23 @@
   },
   "dependencies": {
     "medium-zoom": "^1.1.0",
-    "unlazy": "^0.12.1"
+    "unlazy": "^1.0.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.3.0",
-    "@types/node": "^22.13.5",
-    "@unocss/cli": "^65.5.0",
+    "@antfu/eslint-config": "^6.2.0",
+    "@types/node": "^24.10.1",
+    "@unocss/cli": "^66.5.9",
     "@unocss/core": "65.5.0",
     "@unocss/preset-mini": "65.5.0",
     "@unocss/preset-wind": "65.5.0",
-    "concurrently": "^9.1.2",
-    "eslint": "^9.21.0",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.2",
-    "sass": "^1.85.1",
-    "shx": "^0.3.4",
-    "typescript": "^5.7.3",
-    "unocss": "^65.5.0",
-    "vite": "^6.2.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.1",
+    "postcss": "^8.5.6",
+    "prettier": "^3.7.1",
+    "sass": "^1.94.2",
+    "typescript": "^5.9.3",
+    "unocss": "^66.5.9",
+    "vite": "^7.2.4",
     "vite-plugin-full-reload": "^1.2.0"
   },
   "pnpm": {
