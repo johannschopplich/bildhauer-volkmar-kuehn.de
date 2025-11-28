@@ -1,5 +1,5 @@
 import type { Theme } from "@unocss/preset-wind";
-import { defineConfig, presetWind } from "unocss";
+import { defineConfig, presetWind3 } from "unocss";
 import { rules } from "./src/unocss";
 
 export default defineConfig<Theme>({
@@ -103,5 +103,5 @@ export default defineConfig<Theme>({
       "grid grid-cols-[repeat(auto-fit,minmax(min(var(--masonry-col-max-w,25rem),100%),1fr))] justify-center children:self-start", // grid-rows-[masonry]
   },
 
-  presets: [presetWind()],
+  presets: [presetWind3()],
 });
