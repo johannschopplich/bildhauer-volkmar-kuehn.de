@@ -29,17 +29,17 @@
     --un-decoration-offset: max(2px, 0.15em);
 
     /* Primary color palette (warm brown/tan) */
-    --un-color-primary: oklch(66.6% 0.042 72); /* #A59078 */
-    --un-color-primary-50: oklch(97% 0.0101 76); /* #F9F4EE */
-    --un-color-primary-100: oklch(94% 0.0139 76); /* #F1EAE1 */
-    --un-color-primary-200: oklch(87.5% 0.0218 75); /* #DFD4C6 */
-    --un-color-primary-300: oklch(77.5% 0.0328 74); /* #C3B39F */
-    --un-color-primary-400: oklch(66.6% 0.042 72); /* #A59078 */
-    --un-color-primary-500: oklch(56% 0.0441 70); /* #867058 */
-    --un-color-primary-600: oklch(47% 0.0399 69); /* #6A5743 */
-    --un-color-primary-700: oklch(39% 0.0349 67); /* #524231 */
-    --un-color-primary-800: oklch(31% 0.0273 66); /* #3A2E22 */
-    --un-color-primary-900: oklch(24% 0.021 65); /* #261D15 */
+    --un-color-primary: oklch(70% 0.042 75); /* #AE9B82 */
+    --un-color-primary-50: oklch(96% 0.0101 77); /* #F6F1EA */
+    --un-color-primary-100: oklch(93% 0.0139 77); /* #EDE7DE */
+    --un-color-primary-200: oklch(86.5% 0.0218 76); /* #DBD1C3 */
+    --un-color-primary-300: oklch(78% 0.0328 76); /* #C4B5A1 */
+    --un-color-primary-400: oklch(70% 0.042 75); /* #AE9B82 */
+    --un-color-primary-500: oklch(62% 0.0441 74); /* #968369 */
+    --un-color-primary-600: oklch(53% 0.0399 73); /* #7A6952 */
+    --un-color-primary-700: oklch(45% 0.0349 72); /* #625240 */
+    --un-color-primary-800: oklch(37% 0.0273 71); /* #493D30 */
+    --un-color-primary-900: oklch(28% 0.021 70); /* #30271E */
 
     /* Accent color palette (slate blue) */
     --un-color-accent: oklch(34.5% 0.0504 270); /* #2F3854 */
@@ -138,8 +138,8 @@
     );
     background-color: var(--un-color-background, white);
     background-image:
-      linear-gradient(#a5907815 1px, transparent 1px),
-      linear-gradient(to right, #a5907815 1px, var(--un-color-background) 1px);
+      linear-gradient(#ae9b8215 1px, transparent 1px),
+      linear-gradient(to right, #ae9b8215 1px, var(--un-color-background) 1px);
     background-size: 20px 20px;
     background-position:
       0 0,
