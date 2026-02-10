@@ -9,9 +9,10 @@ class BurgerMenu extends HTMLElement {
   private panel?: HTMLElement;
   private lock?: () => void;
   private unlock?: () => void;
-  private resizeObserver?: ResizeObserver;
+  private mediaQuery?: MediaQueryList;
   private stopClickOutside?: () => void;
   private boundOnKeyDown = this.onKeyDown.bind(this);
+  private boundOnMediaChange = this.onMediaChange.bind(this);
 
   get status() {
     return this._status;
@@ -67,16 +68,14 @@ class BurgerMenu extends HTMLElement {
       { ignore: ['[data-element="navigation-trigger"]'] },
     );
 
-    this.resizeObserver = new ResizeObserver(([entry]) => {
-      this.enabled = entry.contentRect.width <= 768;
-    });
-
-    this.resizeObserver.observe(this.parentNode as Element);
+    this.mediaQuery = window.matchMedia("(width < 768px)");
+    this.enabled = this.mediaQuery.matches;
+    this.mediaQuery.addEventListener("change", this.boundOnMediaChange);
   }
 
   disconnectedCallback() {
     document.removeEventListener("keydown", this.boundOnKeyDown);
-    this.resizeObserver?.disconnect();
+    this.mediaQuery?.removeEventListener("change", this.boundOnMediaChange);
     this.stopClickOutside?.();
   }
 
@@ -90,6 +89,10 @@ class BurgerMenu extends HTMLElement {
       this.toggle("closed");
       this.trigger?.focus();
     }
+  }
+
+  private onMediaChange(event: MediaQueryListEvent) {
+    this.enabled = event.matches;
   }
 
   private update() {
