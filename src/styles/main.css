@@ -1,6 +1,4 @@
-@layer base, components;
-
-@import "uno.css";
+@layer properties, theme, base, foundations, components, default;
 
 @import "base/base.css";
 @import "base/prose.css";
@@ -9,3 +7,5 @@
 @import "components/navigation.css";
 @import "components/prose.custom.css";
 @import "components/skip-link.css";
+
+@import "uno.css";
