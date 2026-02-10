@@ -1,6 +1,10 @@
-import type { Theme } from "@unocss/preset-wind";
-import { defineConfig, presetWind3 } from "unocss";
-import { rules } from "./src/unocss";
+import type { Theme } from "@unocss/preset-wind4";
+import {
+  defineConfig,
+  presetIcons,
+  presetWind4,
+  transformerDirectives,
+} from "unocss";
 
 export default defineConfig<Theme>({
   cli: {
@@ -10,35 +14,32 @@ export default defineConfig<Theme>({
     },
   },
   theme: {
-    maxWidth: {
-      prose: "60ch",
-    },
     colors: {
       primary: {
-        DEFAULT: "#A39178",
-        50: "#EDEAE5",
-        100: "#E5E0D9",
-        200: "#D4CCC1",
-        300: "#C4B9A8",
-        400: "#B3A590",
-        500: "#A39178",
-        600: "#8F7D62",
-        700: "#776852",
-        800: "#5F5341",
-        900: "#3E362A",
+        DEFAULT: "var(--un-color-primary)",
+        50: "var(--un-color-primary-50)",
+        100: "var(--un-color-primary-100)",
+        200: "var(--un-color-primary-200)",
+        300: "var(--un-color-primary-300)",
+        400: "var(--un-color-primary-400)",
+        500: "var(--un-color-primary-500)",
+        600: "var(--un-color-primary-600)",
+        700: "var(--un-color-primary-700)",
+        800: "var(--un-color-primary-800)",
+        900: "var(--un-color-primary-900)",
       },
       accent: {
-        DEFAULT: "#3A445D",
-        50: "#DEE2EB",
-        100: "#D2D7E3",
-        200: "#B9C0D3",
-        300: "#A0AAC3",
-        400: "#8693B4",
-        500: "#6D7DA4",
-        600: "#59698F",
-        700: "#4A5676",
-        800: "#3A445D",
-        900: "#242B3A",
+        DEFAULT: "var(--un-color-accent)",
+        50: "var(--un-color-accent-50)",
+        100: "var(--un-color-accent-100)",
+        200: "var(--un-color-accent-200)",
+        300: "var(--un-color-accent-300)",
+        400: "var(--un-color-accent-400)",
+        500: "var(--un-color-accent-500)",
+        600: "var(--un-color-accent-600)",
+        700: "var(--un-color-accent-700)",
+        800: "var(--un-color-accent-800)",
+        900: "var(--un-color-accent-900)",
       },
       link: {
         DEFAULT: "var(--un-color-link)",
@@ -52,42 +53,72 @@ export default defineConfig<Theme>({
         lowest: "var(--un-color-contrast-lowest)",
         lower: "var(--un-color-contrast-lower)",
         low: "var(--un-color-contrast-low)",
+        soft: "var(--un-color-contrast-soft)",
         medium: "var(--un-color-contrast-medium)",
         high: "var(--un-color-contrast-high)",
         higher: "var(--un-color-contrast-higher)",
       },
     },
-    borderRadius: {
+    radius: {
       DEFAULT: "0.125rem",
     },
-    fontSize: {
-      xs: ["0.75rem", "var(--un-line-height-normal)"],
-      sm: ["0.875rem", "var(--un-line-height-normal)"],
-      base: ["1rem", "var(--un-line-height-normal)"],
-      lg: ["var(--un-text-lg)", "var(--un-line-height-heading)"],
-      xl: ["var(--un-text-xl)", "var(--un-line-height-heading)"],
-      "2xl": ["var(--un-text-2xl)", "var(--un-line-height-heading)"],
-      "3xl": ["var(--un-text-3xl)", "var(--un-line-height-heading)"],
-      "4xl": ["var(--un-text-4xl)", "var(--un-line-height-heading)"],
+    text: {
+      xs: { fontSize: "0.75rem", lineHeight: "var(--un-line-height-normal)" },
+      sm: { fontSize: "0.875rem", lineHeight: "var(--un-line-height-normal)" },
+      base: { fontSize: "1rem", lineHeight: "var(--un-line-height-normal)" },
+      lg: {
+        fontSize: "var(--un-text-lg)",
+        lineHeight: "var(--un-line-height-heading)",
+      },
+      xl: {
+        fontSize: "var(--un-text-xl)",
+        lineHeight: "var(--un-line-height-heading)",
+      },
+      "2xl": {
+        fontSize: "var(--un-text-2xl)",
+        lineHeight: "var(--un-line-height-heading)",
+      },
+      "3xl": {
+        fontSize: "var(--un-text-3xl)",
+        lineHeight: "var(--un-line-height-heading)",
+      },
+      "4xl": {
+        fontSize: "var(--un-text-4xl)",
+        lineHeight: "var(--un-line-height-heading)",
+      },
     },
-    fontFamily: {
+    font: {
       normal: "var(--un-font-family-normal)",
       heading: "var(--un-font-family-heading)",
     },
-    lineHeight: {
+    leading: {
       normal: "var(--un-line-height-normal)",
       heading: "var(--un-line-height-heading)",
     },
+    container: {
+      prose: "60ch",
+    },
   },
-
   rules: [
-    ...rules,
     [
-      /^column-count-(\d+)$/,
-      ([, d], { theme }) => ({
-        "column-count": d,
-        "column-gap": theme.spacing?.["4xl"],
-      }),
+      "hyphenate",
+      {
+        "overflow-wrap": "break-word",
+
+        "-webkit-hyphens": "auto",
+        "-webkit-hyphenate-limit-before": "4",
+        "-webkit-hyphenate-limit-after": "4",
+        "-webkit-hyphenate-limit-chars": "8 4 4",
+        "-webkit-hyphenate-limit-lines": "2",
+        "-webkit-hyphenate-limit-last": "always",
+        "-webkit-hyphenate-limit-zone": "10%",
+
+        hyphens: "auto",
+        "hyphenate-limit-chars": "8 4 4",
+        "hyphenate-limit-lines": "2",
+        "hyphenate-limit-last": "always",
+        "hyphenate-limit-zone": "10%",
+      },
     ],
     [
       "animate-scale",
@@ -97,11 +128,22 @@ export default defineConfig<Theme>({
       },
     ],
   ],
-
-  shortcuts: {
-    "masonry-grid":
-      "grid grid-cols-[repeat(auto-fit,minmax(min(var(--masonry-col-max-w,25rem),100%),1fr))] justify-center children:self-start", // grid-rows-[masonry]
-  },
-
-  presets: [presetWind3()],
+  safelist: ["sr-only", "invisible"],
+  outputToCssLayers: true,
+  transformers: [transformerDirectives()],
+  presets: [
+    presetWind4({
+      preflights: {
+        reset: true,
+      },
+    }),
+    presetIcons({
+      extraProperties: {
+        display: "inline-block",
+        height: "1.25em",
+        width: "1.25em",
+        "vertical-align": "text-bottom",
+      },
+    }),
+  ],
 });

@@ -1,4 +1,4 @@
-import { getRem } from "../utils";
+import { getRootFontSize, isBelow } from "../utils";
 import "medium-zoom/dist/style.css";
 
 export async function install() {
@@ -6,11 +6,10 @@ export async function install() {
     ...document.querySelectorAll<HTMLElement>("[data-zoomable]"),
   ];
 
-  if (!matchMedia("(min-width: 768px)").matches || elements.length === 0)
-    return;
+  if (isBelow("md") || elements.length === 0) return;
 
   const { default: mediumZoom } = await import("medium-zoom/dist/pure");
-  const margin = getRem();
+  const margin = getRootFontSize();
 
   mediumZoom(elements, {
     background: "transparent",

@@ -2,6 +2,9 @@ import type { Plugin as PostCSSPlugin } from "postcss";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as url from "node:url";
+import postcssGlobalData from "@csstools/postcss-global-data";
+import postcssCustomMedia from "postcss-custom-media";
+import postcssNesting from "postcss-nesting";
 import { defineConfig } from "vite";
 import FullReload from "vite-plugin-full-reload";
 
@@ -16,6 +19,7 @@ export default defineConfig(({ mode }) => {
 
     build: {
       outDir: path.resolve(currentDir, "public/dist"),
+      copyPublicDir: false,
       emptyOutDir: true,
       manifest: true,
       rollupOptions: {
@@ -24,12 +28,20 @@ export default defineConfig(({ mode }) => {
     },
 
     define: {
+      __UNLAZY_HASH_DECODING__: false,
       __UNLAZY_LOGGING__: false,
     },
 
     css: {
       postcss: {
-        ...(!isProd && { plugins: [exportDevStyles()] }),
+        plugins: [
+          postcssGlobalData({
+            files: ["./src/styles/abstracts/breakpoints.css"],
+          }),
+          postcssCustomMedia(),
+          postcssNesting(),
+          ...(!isProd ? [exportDevStyles()] : []),
+        ],
       },
     },
 
@@ -42,8 +54,7 @@ export default defineConfig(({ mode }) => {
 });
 
 /**
- * Prevent FOUC in development mode before Vite
- * injects the CSS into the page
+ * Prevent FOUC in development mode before Vite injects the CSS into the page
  */
 function exportDevStyles(): PostCSSPlugin {
   return {

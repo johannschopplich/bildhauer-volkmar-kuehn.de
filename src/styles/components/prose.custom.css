@@ -1,0 +1,100 @@
+@layer components {
+  .prose {
+    & :where(figure:not(:first-child)) {
+      margin-top: calc(2 * var(--un-prose-space-y, 1rem));
+    }
+
+    & :where(figure:not(:last-child)) {
+      margin-bottom: calc(2 * var(--un-prose-space-y, 1rem));
+    }
+
+    & :where(h1, h2, h3, h4, h5, h6) {
+      font-weight: 400;
+      font-family: var(--un-font-family-heading);
+
+      & a {
+        color: inherit;
+        text-decoration-line: none;
+      }
+    }
+
+    & :where(h1) {
+      font-size: var(--un-text-3xl);
+    }
+
+    & :where(h2) {
+      font-size: var(--un-text-2xl);
+    }
+
+    & :where(h3) {
+      font-size: var(--un-text-xl);
+    }
+
+    & :where(h4) {
+      font-size: var(--un-text-lg);
+    }
+
+    & :where(figure) {
+      text-align: center;
+      margin-left: -1.125rem;
+      margin-right: -1.125rem;
+
+      @media (--sm) {
+        &:not([class]),
+        &.full-width,
+        &.pulled-left {
+          margin-left: -1.875rem;
+        }
+
+        &:not([class]),
+        &.full-width,
+        &.pulled-right {
+          margin-right: -1.875rem;
+        }
+
+        &.pulled-left {
+          width: 45%;
+          float: left;
+          margin-top: 0;
+          margin-right: 2rem;
+          margin-bottom: calc(0.5 * var(--un-prose-space-y, 1rem));
+        }
+
+        &.pulled-right {
+          width: 45%;
+          float: right;
+          margin-top: 0;
+          margin-bottom: calc(0.5 * var(--un-prose-space-y, 1rem));
+          margin-left: 2rem;
+        }
+      }
+
+      @media (--md) {
+        &:not([class]),
+        &.pulled-left,
+        &.full-width {
+          margin-left: 0;
+        }
+
+        &:not([class]) {
+          margin-right: 0;
+        }
+      }
+
+      @media (--2xl) {
+        &.pulled-right,
+        &.full-width {
+          margin-right: calc(-25% - 1.875rem);
+        }
+      }
+    }
+
+    & :where(figcaption) {
+      font-size: 0.75em;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      color: var(--un-color-contrast-medium);
+      line-height: var(--un-line-height-normal);
+    }
+  }
+}

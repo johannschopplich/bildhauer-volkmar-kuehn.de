@@ -1,4 +1,14 @@
-import "./styles/main.scss";
+/// <reference types="vite/client" />
+
+import "./styles/main.css";
+
+interface AppModule {
+  install?: () => void | Promise<void>;
+}
+
+interface PageTemplate {
+  default?: () => void | Promise<void>;
+}
 
 // Remove temporary stylesheet (to prevent FOUC) in development mode
 if (import.meta.env.DEV) {
@@ -8,22 +18,20 @@ if (import.meta.env.DEV) {
 }
 
 // Auto-load modules
-for (const m of Object.values(
-  import.meta.glob<{ install?: () => void | Promise<void> }>("./modules/*.ts", {
+for (const mod of Object.values(
+  import.meta.glob<AppModule>("./modules/*.ts", {
     eager: true,
   }),
 )) {
-  m.install?.();
+  mod.install?.();
 }
 
 // Auto-load templates
 const templates = Object.fromEntries(
-  Object.entries(
-    import.meta.glob<{ default?: () => void | Promise<void> }>(
-      "./templates/*.ts",
-    ),
-  ).map(([key, value]) => [key.slice(12, -3), value]),
+  Object.entries(import.meta.glob<PageTemplate>("./templates/*.ts")).map(
+    ([key, value]) => [key.slice(12, -3), value],
+  ),
 );
 
 const { template = "default" } = document.body.dataset;
-templates[template]?.().then((m) => m.default?.());
+templates[template]?.().then((mod) => mod.default?.());

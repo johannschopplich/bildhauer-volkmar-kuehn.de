@@ -5,7 +5,7 @@
 
       <p class="flex flex-wrap">
         <?php foreach ($site->footerPages()->toPages() as $item): ?>
-          <a href="<?= $item->url() ?>" class="link-current pr-lg">
+          <a href="<?= $item->url() ?>" class="link-default pr-lg">
             <?= $item->title()->escape() ?>
           </a>
         <?php endforeach ?>
