@@ -11,13 +11,13 @@
     </a>
 
     <burger-menu class="z-20 md:hidden">
-      <button class="relative w-8 h-8 cursor-pointer" type="button" data-element="navigation-trigger">
+      <button class="relative w-8 h-8 cursor-pointer" type="button" data-element="navigation-trigger" aria-expanded="false" aria-label="Menü öffnen" aria-controls="navigation-panel">
         <span class="burger-menu-bar" aria-hidden="true"></span>
       </button>
     </burger-menu>
   </div>
 
-  <nav class="navigation-panel" aria-label="Hauptnavigation" data-element="navigation-panel">
+  <nav class="navigation-panel" id="navigation-panel" aria-label="Hauptnavigation" data-element="navigation-panel">
     <div
       class="w-min h-full grid grid-rows-[1fr_2fr] justify-center mx-auto md:w-unset md:flex md:flex-col md:justify-between md:mx-0"
       data-element="navigation-content">
@@ -31,13 +31,15 @@
         <ul class="w-[75vw] px-3xl py-5xl space-y-sm md:w-full md:py-3xl md:space-y-2" role="list">
           <?php foreach (($listedItems = $site->children()->listed()) as $item): ?>
             <?php $index = $item->indexOf($listedItems) + 1 ?>
-            <a
-              href="<?= $item->url() ?>"
-              class="navigation-link text-size-xl leading-tight md:text-size-lg"
-              <?php e($item->isOpen(), 'aria-current="page"') ?>
-              style="--delay: <?= $index * 50 ?>ms">
-              <?= $item->title()->escape() ?>
-            </a>
+            <li>
+              <a
+                href="<?= $item->url() ?>"
+                class="navigation-link text-size-xl leading-tight md:text-size-lg"
+                <?php e($item->isOpen(), 'aria-current="page"') ?>
+                style="--delay: <?= $index * 50 ?>ms">
+                <?= $item->title()->escape() ?>
+              </a>
+            </li>
           <?php endforeach ?>
         </ul>
       </div>

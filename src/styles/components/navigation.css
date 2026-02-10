@@ -61,7 +61,6 @@
       }
 
       &:not(.is-open) {
-        pointer-events: none;
         visibility: hidden;
         opacity: 0;
       }
@@ -99,6 +98,16 @@
 
     @media (--md) {
       transition-duration: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .burger-menu-bar,
+    .burger-menu-bar::before,
+    .burger-menu-bar::after,
+    .navigation-panel,
+    .navigation-link {
+      transition-duration: 0.01ms !important;
     }
   }
 }

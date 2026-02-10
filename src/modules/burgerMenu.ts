@@ -1,44 +1,36 @@
 import { onClickOutside, scrollLock } from "../utils";
 
-interface BurgerState {
-  status: "open" | "closed";
-  enabled: boolean;
-}
-
-const { lock, unlock } = scrollLock(document.documentElement);
+type BurgerStatus = "open" | "closed";
 
 class BurgerMenu extends HTMLElement {
-  state: BurgerState;
-  trigger?: HTMLElement;
-  panel?: HTMLElement;
-  focusableElements?: NodeListOf<HTMLElement>;
+  private _status: BurgerStatus = "closed";
+  private _enabled = false;
+  private trigger?: HTMLElement;
+  private panel?: HTMLElement;
+  private lock?: () => void;
+  private unlock?: () => void;
+  private resizeObserver?: ResizeObserver;
+  private stopClickOutside?: () => void;
+  private boundOnKeyDown = this.onKeyDown.bind(this);
 
-  constructor() {
-    super();
+  get status() {
+    return this._status;
+  }
 
-    // eslint-disable-next-line ts/no-this-alias
-    const self = this;
+  set status(value: BurgerStatus) {
+    if (this._status === value) return;
+    this._status = value;
+    this.update();
+  }
 
-    this.state = new Proxy<BurgerState>(
-      {
-        status: "open",
-        enabled: false,
-      },
-      {
-        set(target, key: keyof BurgerState, value) {
-          const oldValue = Reflect.get(target, key);
-          const result = Reflect.set(target, key, value);
+  get enabled() {
+    return this._enabled;
+  }
 
-          if (result && oldValue !== value) {
-            self.updateAttributes();
-            self.updateFocus();
-            self.updatePanelClass();
-          }
-
-          return result;
-        },
-      },
-    );
+  set enabled(value: boolean) {
+    if (this._enabled === value) return;
+    this._enabled = value;
+    this.update();
   }
 
   connectedCallback() {
@@ -51,25 +43,21 @@ class BurgerMenu extends HTMLElement {
 
     if (!this.trigger || !this.panel) return;
 
-    this.focusableElements = getFocusableElements(this.panel);
-    this.toggle();
+    const { lock, unlock } = scrollLock(document.documentElement);
+    this.lock = lock;
+    this.unlock = unlock;
+
+    this.update();
 
     this.trigger.addEventListener("click", (event: Event) => {
       event.preventDefault();
-      window.scrollTo(0, 0);
+      if (this._status === "closed") window.scrollTo(0, 0);
       this.toggle();
     });
 
-    document.addEventListener("focusin", () => {
-      if (
-        !this.contains(document.activeElement) &&
-        !this.panel!.contains(document.activeElement)
-      ) {
-        this.toggle("closed");
-      }
-    });
+    document.addEventListener("keydown", this.boundOnKeyDown);
 
-    onClickOutside(
+    this.stopClickOutside = onClickOutside(
       document.querySelector<HTMLElement>(
         '[data-element="navigation-content"]',
       )!,
@@ -79,68 +67,60 @@ class BurgerMenu extends HTMLElement {
       { ignore: ['[data-element="navigation-trigger"]'] },
     );
 
-    const observer = new ResizeObserver(([entry]) => {
-      const { contentRect } = entry;
-      this.state.enabled = contentRect.width <= 768;
+    this.resizeObserver = new ResizeObserver(([entry]) => {
+      this.enabled = entry.contentRect.width <= 768;
     });
 
-    observer.observe(this.parentNode as Element);
+    this.resizeObserver.observe(this.parentNode as Element);
   }
 
-  toggle(forcedStatus?: BurgerState["status"]) {
-    if (forcedStatus) {
-      this.state.status = forcedStatus;
-      return;
-    }
-
-    this.state.status = this.state.status === "closed" ? "open" : "closed";
+  disconnectedCallback() {
+    document.removeEventListener("keydown", this.boundOnKeyDown);
+    this.resizeObserver?.disconnect();
+    this.stopClickOutside?.();
   }
 
-  updateAttributes() {
-    this.setAttribute("status", this.state.status);
-    this.setAttribute("enabled", this.state.enabled ? "true" : "false");
-
-    const ariaExpanded = this.state.status === "open" ? "true" : "false";
-    const ariaLabel =
-      this.state.status === "open" ? "Menü schließen" : "Menü öffnen";
-
-    this.trigger?.setAttribute("aria-expanded", ariaExpanded);
-    this.trigger?.setAttribute("aria-label", ariaLabel);
+  toggle(forcedStatus?: BurgerStatus) {
+    this.status =
+      forcedStatus ?? (this._status === "closed" ? "open" : "closed");
   }
 
-  updateFocus() {
-    if (!this.focusableElements) return;
-
-    for (const element of this.focusableElements) {
-      if (this.state.status === "open" || !this.state.enabled) {
-        element.removeAttribute("tabindex");
-      } else {
-        element.setAttribute("tabindex", "-1");
-      }
+  private onKeyDown(event: KeyboardEvent) {
+    if (event.key === "Escape" && this._status === "open" && this._enabled) {
+      this.toggle("closed");
+      this.trigger?.focus();
     }
   }
 
-  updatePanelClass() {
-    if (this.state.status === "open") {
-      this.panel?.classList.add("is-open");
-      lock();
+  private update() {
+    if (!this.trigger || !this.panel) return;
+
+    const isOpen = this._status === "open";
+
+    // Update custom element attributes
+    this.setAttribute("status", this._status);
+    this.setAttribute("enabled", this._enabled ? "true" : "false");
+
+    // Update trigger ARIA
+    this.trigger.setAttribute("aria-expanded", String(isOpen));
+    this.trigger.setAttribute(
+      "aria-label",
+      isOpen ? "Menü schließen" : "Menü öffnen",
+    );
+
+    // Use inert to manage focus and pointer events on the panel
+    this.panel.inert = !isOpen && this._enabled;
+
+    // Toggle panel visibility class and scroll lock
+    this.panel.classList.toggle("is-open", isOpen);
+    if (isOpen && this._enabled) {
+      this.lock?.();
     } else {
-      this.panel?.classList.remove("is-open");
-      unlock();
+      this.unlock?.();
     }
   }
 }
 
 export function install() {
   window.customElements.define("burger-menu", BurgerMenu);
-}
-
-/**
- * Returns back a NodeList of focusable elements
- * that exist within the passed parnt HTMLElement
- */
-function getFocusableElements(parent: HTMLElement) {
-  return parent.querySelectorAll<HTMLElement>(
-    'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), details:not([disabled]), summary:not(:disabled)',
-  );
 }
