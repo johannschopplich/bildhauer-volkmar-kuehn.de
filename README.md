@@ -1,4 +1,4 @@
-[![Bildhauer Volkmar Kühn](./public/assets/images/og.png)](https://bildhauer-volkmar-kuehn.de)
+[![Bildhauer Volkmar Kühn](./public/assets/images/og.jpg)](https://bildhauer-volkmar-kuehn.de)
 
 # Bildhauer Volkmar Kühn
 

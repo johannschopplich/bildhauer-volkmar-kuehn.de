@@ -21,7 +21,6 @@
 
   <meta name="theme-color" content="#625240">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
-  <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
 
   <?php if (vite()->isDev()) : ?>
