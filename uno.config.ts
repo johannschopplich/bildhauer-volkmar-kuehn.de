@@ -41,10 +41,6 @@ export default defineConfig<Theme>({
         800: "var(--un-color-accent-800)",
         900: "var(--un-color-accent-900)",
       },
-      link: {
-        DEFAULT: "var(--un-color-link)",
-        hover: "var(--un-color-link-hover)",
-      },
       theme: {
         base: "var(--un-color-text)",
         background: "var(--un-color-background)",
