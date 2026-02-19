@@ -36,36 +36,35 @@
 
     & :where(figure) {
       text-align: center;
-      margin-left: -1.125rem;
-      margin-right: -1.125rem;
+      margin-inline: -1.125rem;
 
       @media (--sm) {
         &:not([class]),
         &.full-width,
         &.pulled-left {
-          margin-left: -1.875rem;
+          margin-inline-start: -1.875rem;
         }
 
         &:not([class]),
         &.full-width,
         &.pulled-right {
-          margin-right: -1.875rem;
+          margin-inline-end: -1.875rem;
         }
 
         &.pulled-left {
           width: 45%;
-          float: left;
+          float: inline-start;
           margin-top: 0;
-          margin-right: 2rem;
+          margin-inline-end: 2rem;
           margin-bottom: calc(0.5 * var(--un-prose-space-y, 1rem));
         }
 
         &.pulled-right {
           width: 45%;
-          float: right;
+          float: inline-end;
           margin-top: 0;
           margin-bottom: calc(0.5 * var(--un-prose-space-y, 1rem));
-          margin-left: 2rem;
+          margin-inline-start: 2rem;
         }
       }
 
@@ -73,26 +72,25 @@
         &:not([class]),
         &.pulled-left,
         &.full-width {
-          margin-left: 0;
+          margin-inline-start: 0;
         }
 
         &:not([class]) {
-          margin-right: 0;
+          margin-inline-end: 0;
         }
       }
 
       @media (--2xl) {
         &.pulled-right,
         &.full-width {
-          margin-right: calc(-25% - 1.875rem);
+          margin-inline-end: calc(-25% - 1.875rem);
         }
       }
     }
 
     & :where(figcaption) {
       font-size: 0.75em;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-inline: 0.5rem;
       color: var(--un-color-contrast-medium);
       line-height: var(--un-line-height-normal);
     }
