@@ -1,5 +1,5 @@
 export * from "./breakpoints";
 export * from "./font";
-export * from "./onClickOutside";
-export * from "./scrollLock";
+export * from "./on-click-outside";
+export * from "./scroll-lock";
 export * from "./shared";
