@@ -8,8 +8,14 @@ fields:
     columns: 2
     default: kirby
     options:
-      kirby: Intern
-      web: Web
+      - value: kirby
+        text:
+          de: Intern
+          en: Internal
+      - value: web
+        text:
+          de: Web
+          en: Web
   image:
     label: field.blocks.image.name
     type: files

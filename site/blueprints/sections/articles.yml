@@ -1,8 +1,0 @@
-type: pages
-template: article
-create: article
-sortBy: published desc
-info: "{{ page.published.toDate('dd.MM.yyyy') }}"
-image:
-  query: page.thumbnail.toFile
-  cover: true
