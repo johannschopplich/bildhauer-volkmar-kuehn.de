@@ -19,7 +19,7 @@ tabs:
               customTitle:
                 extends: fields/customTitle
                 width: 1/2
-              cover:
+              thumbnail:
                 extends: fields/thumbnail
                 width: 1/2
 
