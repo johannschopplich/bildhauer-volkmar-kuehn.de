@@ -3,7 +3,6 @@ import {
   defineConfig,
   presetIcons,
   presetWind4,
-  transformerDirectives,
 } from "unocss";
 
 export default defineConfig<Theme>({
@@ -126,7 +125,6 @@ export default defineConfig<Theme>({
   ],
   safelist: ["sr-only", "invisible"],
   outputToCssLayers: true,
-  transformers: [transformerDirectives()],
   presets: [
     presetWind4({
       preflights: {
