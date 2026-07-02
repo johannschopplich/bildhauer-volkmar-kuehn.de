@@ -1,65 +1,62 @@
+<div align="center">
+
 [![Bildhauer Volkmar Kühn](./public/assets/images/og.jpg)](https://bildhauer-volkmar-kuehn.de)
 
 # Bildhauer Volkmar Kühn
 
-## What is this?
+Website for the German sculptor Volkmar Kühn.
 
-This is the website source code for the sculptor [Volkmar Kühn](https://de.wikipedia.org/wiki/Volkmar_K%C3%BChn), a German sculptor known for his works displayed in public spaces, particularly in Gera (the town I grew up in). Since 1968, he has been living and working in the former Mildenfurth monastery, which the logo represents.
+[Website](https://bildhauer-volkmar-kuehn.de)
 
-The artist lacks exposure on the interweb, so I decided to build a website for him during Easter 2023. The website is built with [Kirby](https://getkirby.com), [Vite](https://vitejs.dev) and [UnoCSS](https://unocss.dev).
+</div>
 
-## Installation
+## Why
 
-1. Duplicate the [`.env.development.example`](./.env.development.example) as `.env`:
+[Volkmar Kühn](https://de.wikipedia.org/wiki/Volkmar_K%C3%BChn) is a German sculptor whose works shape public spaces, particularly in Gera – the town I grew up in. Since 1968 he has been living and working in the former Mildenfurth monastery, which the logo represents.
+
+Shortly before Easter 2023, Dad asked me to build a small website for him: "Just a text and a photo. Really simple." A static page would have meant maintaining content by hand, so I spent the free Easter hours on a Kirby site the family can edit themselves – gallery, events, the Kunstspeicher Mildenfurth and the artist's vita included. A few design ideas that had been lying around as code snippets in unordered bookmarks finally found a home.
+
+## How It's Built
+
+- [Kirby 5](https://getkirby.com) – flat-file CMS; content lives under `storage/`, separate from the `public/` webroot
+- [Vite](https://vite.dev) + [UnoCSS](https://unocss.dev) (preset-wind4) + TypeScript – styling and frontend build
+- [kirby-helpers](https://github.com/johannschopplich/kirby-helpers) – meta, robots.txt, sitemap and a schema.org graph linking Wikipedia, Wikidata and GND
+
+Images render as WebP srcsets with ThumbHash placeholders ([kirby-thumbhash](https://github.com/tobimori/kirby-thumbhash) + [unlazy](https://unlazy.byjohann.dev)) and zoom via [medium-zoom](https://github.com/francoischalifour/medium-zoom); the mobile nav is an accessible `<burger-menu>` web component.
+
+## Development
+
+1. Create your `.env` from the example:
+
    ```bash
    cp .env.development.example .env
    ```
-2. Install the required Node dependencies:
+
+2. Install dependencies:
+
    ```bash
    pnpm install
-   ```
-3. Install the required Composer dependencies:
-   ```bash
    composer install
    ```
 
-## Usage
+3. Start the frontend watchers (Vite + UnoCSS, via mprocs):
 
-### Development
-
-1. Start the Vite development server and watch for file changes accordingly:
    ```bash
-   pnpm dev
+   pnpm run dev
    ```
-2. Run the built-in PHP web server or use a development web server of your choice (like [Laravel Valet](https://laravel.com/docs/10.x/valet)).
+
+4. Run the PHP server in a second shell – or use a dev server of your choice (e.g. Laravel Valet):
+
    ```bash
    composer start
    ```
 
-### Production
+Build the production assets with `pnpm run build`. Deployment runs through [`scripts/ploi-deploy.sh`](./scripts/ploi-deploy.sh) on [ploi.io](https://ploi.io).
 
-Build the frontend assets for production:
-
-```bash
-pnpm build
-```
-
-If you have caching enabled, make sure to wipe the cache after each build:
-
-```bash
-rm -rf storage/cache/<your-website>
-```
-
-### Deployment
-
-> [!TIP]
-> See [ploi-deploy.sh](./scripts/ploi-deploy.sh) for deployment instructions.
-
-> [!NOTE]
-> For Apache web servers: Some hosting environments require uncommenting `RewriteBase /` in [`.htaccess`](./public/.htaccess) to make site links work.
+Content is not part of the repository – [`scripts/sync-content.sh`](./scripts/sync-content.sh) rsyncs `storage/content` between local and server (dry-run by default, `--apply` to execute).
 
 ## License
 
-The code is licensed under [MIT](./LICENSE), words and images are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+The code is licensed under [MIT](./LICENSE); words and images are licensed under [CC BY-NC-SA 4.0](./CC-BY-NC-SA-4.0).
 
 © 2023-PRESENT [Johann Schopplich](https://github.com/johannschopplich)
