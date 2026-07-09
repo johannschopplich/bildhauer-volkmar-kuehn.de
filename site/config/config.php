@@ -14,12 +14,6 @@ return [
         'runner' => DefaultRunner::class
     ],
 
-    'date' => [
-        'handler' => 'intl'
-    ],
-
-    'locale' => 'de_DE.utf-8',
-
     'panel' => [
         'install' => env('KIRBY_PANEL_INSTALL', false),
         'slug' => env('KIRBY_PANEL_SLUG', 'panel'),
