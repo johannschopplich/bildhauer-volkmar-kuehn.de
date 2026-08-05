@@ -1,9 +1,5 @@
 import type { Theme } from "@unocss/preset-wind4";
-import {
-  defineConfig,
-  presetIcons,
-  presetWind4,
-} from "unocss";
+import { defineConfig, presetIcons, presetWind4 } from "unocss";
 
 export default defineConfig<Theme>({
   cli: {
