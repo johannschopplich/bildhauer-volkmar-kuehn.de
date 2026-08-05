@@ -10,14 +10,14 @@ interface PageTemplate {
   default?: () => void | Promise<void>;
 }
 
-// Remove temporary stylesheet (to prevent FOUC) in development mode
+// Remove the temporary stylesheet that prevents a flash of unstyled content
+// before Vite injects its own styles.
 if (import.meta.env.DEV) {
   for (const el of document.querySelectorAll(`[id*="vite-dev"]`)) {
     el.remove();
   }
 }
 
-// Auto-load modules
 for (const mod of Object.values(
   import.meta.glob<AppModule>("./modules/*.ts", {
     eager: true,
@@ -26,7 +26,6 @@ for (const mod of Object.values(
   mod.install?.();
 }
 
-// Auto-load templates
 const templates = Object.fromEntries(
   Object.entries(import.meta.glob<PageTemplate>("./templates/*.ts")).map(
     ([key, value]) => [key.slice(12, -3), value],

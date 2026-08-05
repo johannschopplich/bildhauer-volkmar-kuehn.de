@@ -6,7 +6,7 @@ export interface OnClickOutsideOptions {
    */
   ignore?: string[];
   /**
-   * Use capturing phase for internal event listener.
+   * Whether the internal listener runs in the capturing phase.
    * @default true
    */
   capture?: boolean;
@@ -15,7 +15,8 @@ export interface OnClickOutsideOptions {
 let _iOSWorkaround = false;
 
 /**
- * Listen for clicks outside of an element.
+ * Listens for clicks outside of `target` and returns a function that stops
+ * listening.
  */
 export function onClickOutside(
   target: HTMLElement | SVGElement,

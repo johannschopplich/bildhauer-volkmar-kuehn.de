@@ -53,7 +53,8 @@ export default defineConfig(({ mode }) => {
 });
 
 /**
- * Prevent FOUC in development mode before Vite injects the CSS into the page
+ * Writes the compiled CSS to a file the layout loads in development, preventing
+ * a flash of unstyled content before Vite injects its own styles.
  */
 function exportDevStyles(): PostCSSPlugin {
   return {

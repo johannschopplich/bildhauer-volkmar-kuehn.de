@@ -28,7 +28,6 @@
     --un-decoration-thickness: max(1px, 0.05em);
     --un-decoration-offset: max(2px, 0.15em);
 
-    /* Primary color palette (warm brown/tan) */
     --un-color-primary: oklch(70% 0.042 75); /* #AE9B82 */
     --un-color-primary-50: oklch(96% 0.0101 77); /* #F6F1EA */
     --un-color-primary-100: oklch(93% 0.0139 77); /* #EDE7DE */
@@ -41,7 +40,6 @@
     --un-color-primary-800: oklch(37% 0.0273 71); /* #493D30 */
     --un-color-primary-900: oklch(28% 0.021 70); /* #30271E */
 
-    /* Accent color palette (slate blue) */
     --un-color-accent: oklch(34.5% 0.0504 270); /* #2F3854 */
     --un-color-accent-50: oklch(96.5% 0.0101 262); /* #F0F4FA */
     --un-color-accent-100: oklch(93% 0.017 263); /* #E2E8F4 */
@@ -111,7 +109,6 @@
     background-color: var(--un-color-background);
   }
 
-  /* Sidebar theme overrides */
   #sidebar {
     background-color: var(--un-color-background);
 

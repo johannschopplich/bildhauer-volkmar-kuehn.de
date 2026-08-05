@@ -1,3 +1,3 @@
 export default function () {
-  // This function will only be called on the home page
+  // Only called on the home page.
 }

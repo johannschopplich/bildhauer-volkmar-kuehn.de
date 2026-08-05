@@ -100,21 +100,19 @@ class BurgerMenu extends HTMLElement {
 
     const isOpen = this._status === "open";
 
-    // Update custom element attributes
     this.setAttribute("status", this._status);
     this.setAttribute("enabled", this._enabled ? "true" : "false");
 
-    // Update trigger ARIA
     this.trigger.setAttribute("aria-expanded", String(isOpen));
     this.trigger.setAttribute(
       "aria-label",
       isOpen ? "Menü schließen" : "Menü öffnen",
     );
 
-    // Use inert to manage focus and pointer events on the panel
+    // Mark the panel inert only while the burger menu is enabled, so it keeps
+    // focus and pointer events above the mobile breakpoint.
     this.panel.inert = !isOpen && this._enabled;
 
-    // Toggle panel visibility class and scroll lock
     this.panel.classList.toggle("is-open", isOpen);
     if (isOpen && this._enabled) {
       this.lock?.();
