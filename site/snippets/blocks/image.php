@@ -25,7 +25,7 @@ if ($block->location() === 'web') {
       'width' => $image->width(),
       'height' => $image->height(),
       'style' => 'aspect-ratio: ' . $image->ratio(),
-      'alt' => $alt->isNotEmpty() ? $alt->escape() : null
+      'alt' => $alt->escape()
     ]
   );
 } else {
