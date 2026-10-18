@@ -51,7 +51,7 @@ Images render as WebP srcsets with ThumbHash placeholders ([kirby-thumbhash](htt
    composer start
    ```
 
-Build the production assets with `pnpm run build`. Deployment runs through [`scripts/ploi-deploy.sh`](./scripts/ploi-deploy.sh) on [ploi.io](https://ploi.io).
+Build the production assets with `pnpm run build`. Pushes to `main` deploy through [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml).
 
 Content is not part of the repository – [`scripts/sync-content.sh`](./scripts/sync-content.sh) rsyncs `storage/content` between local and server (dry-run by default, `--apply` to execute).
 
