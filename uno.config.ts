@@ -143,7 +143,7 @@ export default defineConfig<Theme>({
     }),
     presetWebFonts({
       fonts: {
-        normal: { name: "Jost", weights: [400, 700], italic: true },
+        normal: { name: "Jost", weights: ["400..700"], italic: true },
       },
       extendTheme: false,
       processors: createLocalFontProcessor({
