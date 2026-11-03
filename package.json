@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.1.0",
-    "@csstools/postcss-global-data": "^4.0.0",
     "@types/node": "^26.0.1",
     "@unocss/cli": "^66.7.3",
     "@unocss/core": "^66.7.3",

@@ -1,3 +1,4 @@
+import { breakpoints } from "../breakpoints.ts";
 import { onClickOutside, scrollLock } from "../utils";
 
 type BurgerStatus = "open" | "closed";
@@ -68,7 +69,7 @@ class BurgerMenu extends HTMLElement {
       { ignore: ['[data-element="navigation-trigger"]'] },
     );
 
-    this.mediaQuery = window.matchMedia("(width < 768px)");
+    this.mediaQuery = window.matchMedia(`(width < ${breakpoints.md}px)`);
     this.enabled = this.mediaQuery.matches;
     this.mediaQuery.addEventListener("change", this.boundOnMediaChange);
   }
