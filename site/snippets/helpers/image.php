@@ -3,7 +3,7 @@
 use Kirby\Toolkit\Html;
 
 /** @var \Kirby\Cms\File|null $image */
-if (isset($image) && !$image) return;
+if (!isset($image)) return;
 
 echo Html::img($image->thumbhashUri(), [
   'loading' => 'lazy',
