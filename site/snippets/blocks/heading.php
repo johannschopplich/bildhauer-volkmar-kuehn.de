@@ -7,4 +7,4 @@ use Kirby\Toolkit\Str;
 $level = $block->level()->or('h2');
 $id = Str::slug(Str::unhtml($block->text()));
 
-echo Html::tag($level, [$block->text()], ['id' => $id]);
+echo Html::tag($level, [$block->text()->permalinksToUrls()], ['id' => $id]);

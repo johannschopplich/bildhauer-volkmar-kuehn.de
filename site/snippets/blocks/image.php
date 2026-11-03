@@ -46,7 +46,7 @@ if ($block->location() === 'web') {
 
   <?php if ($caption->isNotEmpty()): ?>
     <figcaption>
-      <?= $caption ?>
+      <?= $caption->permalinksToUrls() ?>
     </figcaption>
   <?php endif ?>
 </figure>
