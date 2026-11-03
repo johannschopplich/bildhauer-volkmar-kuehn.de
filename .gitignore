@@ -27,5 +27,6 @@ site/plugins/*
 
 # Build assets
 public/assets/dev
+public/assets/fonts/web
 public/dist
 src/styles/uno.css

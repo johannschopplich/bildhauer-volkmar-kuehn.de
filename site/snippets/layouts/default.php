@@ -30,10 +30,7 @@
   <?= vite()->js('main.ts') ?>
   <?= vite()->css('main.ts') ?>
 
-  <?= css([
-    'assets/fonts/Silverknife.css',
-    'assets/fonts/Jost.css'
-  ]) ?>
+  <?= css('assets/fonts/Silverknife.css') ?>
 
 </head>
 

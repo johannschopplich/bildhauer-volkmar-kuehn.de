@@ -1,4 +1,6 @@
 import type { Theme } from "@unocss/preset-wind4";
+import presetWebFonts from "@unocss/preset-web-fonts";
+import { createLocalFontProcessor } from "@unocss/preset-web-fonts/local";
 import { defineConfig, presetIcons, presetWind4 } from "unocss";
 import { breakpoints } from "./src/breakpoints.ts";
 
@@ -138,6 +140,16 @@ export default defineConfig<Theme>({
         width: "1.25em",
         "vertical-align": "text-bottom",
       },
+    }),
+    presetWebFonts({
+      fonts: {
+        normal: { name: "Jost", weights: [400, 700], italic: true },
+      },
+      extendTheme: false,
+      processors: createLocalFontProcessor({
+        fontAssetsDir: "public/assets/fonts/web",
+        fontServeBaseUrl: "/assets/fonts/web",
+      }),
     }),
   ],
 });

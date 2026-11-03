@@ -178,6 +178,9 @@ importers:
       '@unocss/core':
         specifier: ^66.12.0
         version: 66.12.0
+      '@unocss/preset-web-fonts':
+        specifier: ^66.12.0
+        version: 66.12.0
       '@unocss/preset-wind4':
         specifier: ^66.12.0
         version: 66.12.0

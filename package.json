@@ -16,6 +16,7 @@
     "@types/node": "^26.0.1",
     "@unocss/cli": "^66.12.0",
     "@unocss/core": "^66.12.0",
+    "@unocss/preset-web-fonts": "^66.12.0",
     "@unocss/preset-wind4": "^66.12.0",
     "culori": "^4.0.2",
     "eslint": "^10.6.0",
