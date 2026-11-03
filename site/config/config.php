@@ -57,7 +57,10 @@ return [
             'enabled' => true
         ],
         'sitemap' => [
-            'enabled' => true
+            'enabled' => true,
+            'exclude' => [
+                'pages' => ['error']
+            ]
         ]
     ]
 
