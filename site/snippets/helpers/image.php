@@ -13,5 +13,5 @@ echo Html::img($image->thumbhashUri(), [
   'width' => $image->width(),
   'height' => $image->height(),
   'style' => 'aspect-ratio: ' . $image->ratio(),
-  'alt' => $image->alt()->escape()
+  'alt' => $image->alt()
 ]);
