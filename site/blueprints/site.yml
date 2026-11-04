@@ -47,16 +47,7 @@ tabs:
             image:
               back: white
               cover: true
-
-  settings:
-    label:
-      de: Einstellungen
-      en: Settings
-    icon: settings
-    columns:
-      - width: 1/2
-        sections:
-          content:
+          footer:
             type: fields
             fields:
               footerPages:
@@ -65,17 +56,34 @@ tabs:
                   en: Footer Pages
                 type: pages
 
-      - width: 1/2
+  seo:
+    label: SEO
+    icon: search
+    columns:
+      - width: 2/3
         sections:
           meta:
             type: fields
             fields:
-              description: fields/description
+              description:
+                extends: fields/description
+                help:
+                  de: Für Seiten ohne eigene Beschreibung.
+                  en: For pages without a description of their own.
+
+      - width: 1/3
+        sections:
+          preview:
+            type: fields
+            fields:
               thumbnail:
                 extends: fields/thumbnail
                 query: kirby.site.files.template("image")
                 uploads:
                   parent: kirby.site
                   template: image
+                help:
+                  de: Für Seiten ohne eigenes Vorschaubild.
+                  en: For pages without a thumbnail of their own.
 
   images: tabs/images
