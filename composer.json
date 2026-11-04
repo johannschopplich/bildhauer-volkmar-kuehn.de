@@ -2,7 +2,7 @@
   "require": {
     "getkirby/cms": "^5",
     "johannschopplich/kirby-helpers": "^7",
-    "tobimori/kirby-thumbhash": "^1"
+    "tobimori/kirby-thumbhash": "^3"
   },
   "scripts": {
     "start": [
