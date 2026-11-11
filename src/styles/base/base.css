@@ -69,7 +69,7 @@
     --un-color-contrast-high: var(--tw-color-stone-800);
     --un-color-contrast-higher: var(--tw-color-stone-900);
 
-    --un-color-background: #fafaf9;
+    --un-color-background: var(--tw-color-stone-50);
     --un-color-text: var(--un-color-contrast-higher);
     --un-color-border: currentcolor;
     --un-color-primary-accent: var(--un-color-primary-500);
