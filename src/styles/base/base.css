@@ -51,18 +51,6 @@
     --un-color-accent-700: oklch(42% 0.0554 269); /* #414C6C */
     --un-color-accent-800: oklch(34.5% 0.0504 270); /* #2F3854 */
     --un-color-accent-900: oklch(26% 0.041 271); /* #1D2338 */
-
-    --tw-color-stone-50: oklch(0.985 0.001 106.423);
-    --tw-color-stone-100: oklch(0.97 0.001 106.424);
-    --tw-color-stone-200: oklch(0.923 0.003 48.717);
-    --tw-color-stone-300: oklch(0.869 0.005 56.366);
-    --tw-color-stone-400: oklch(0.709 0.01 56.259);
-    --tw-color-stone-500: oklch(0.553 0.013 58.071);
-    --tw-color-stone-600: oklch(0.444 0.011 73.639);
-    --tw-color-stone-700: oklch(0.374 0.01 67.558);
-    --tw-color-stone-800: oklch(0.268 0.007 34.298);
-    --tw-color-stone-900: oklch(0.216 0.006 56.043);
-    --tw-color-stone-950: oklch(0.147 0.004 49.25);
   }
 
   @media screen and (min-width: 1140px) {

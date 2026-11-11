@@ -4,6 +4,8 @@ import { createLocalFontProcessor } from "@unocss/preset-web-fonts/local";
 import { defineConfig, presetIcons, presetWind4 } from "unocss";
 import { breakpoints } from "./src/breakpoints.ts";
 
+const TAILWIND_PALETTES = ["stone"];
+
 export default defineConfig<Theme>({
   cli: {
     entry: {
@@ -126,6 +128,13 @@ export default defineConfig<Theme>({
     ],
   ],
   safelist: ["sr-only", "invisible"],
+  preflights: [
+    {
+      layer: "theme",
+      getCSS: ({ theme }) =>
+        `:root { ${tailwindPaletteTokens(theme).join(" ")} }`,
+    },
+  ],
   outputToCssLayers: true,
   presets: [
     presetWind4({
@@ -153,3 +162,15 @@ export default defineConfig<Theme>({
     }),
   ],
 });
+
+function tailwindPaletteTokens(theme: Theme) {
+  return TAILWIND_PALETTES.flatMap((name) => {
+    const palette = theme.colors?.[name];
+    if (typeof palette !== "object")
+      throw new Error(`Unknown Tailwind palette: ${name}`);
+
+    return Object.entries(palette)
+      .filter(([shade]) => /^\d+$/.test(shade))
+      .map(([shade, value]) => `--tw-color-${name}-${shade}: ${value};`);
+  });
+}
